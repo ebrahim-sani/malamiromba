@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, ChevronLeft, ChevronRight, Play } from "lucide-react";
+import { Check, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 

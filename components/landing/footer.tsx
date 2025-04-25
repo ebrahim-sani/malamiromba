@@ -7,7 +7,7 @@ import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Instagram, Facebook, Twitter, Linkedin } from "lucide-react";
+import { Instagram, Facebook, Linkedin } from "lucide-react";
 import { FaTelegram } from "react-icons/fa";
 import { footerLinks } from "@/common/lib/data";
 import { BsTwitterX } from "react-icons/bs";

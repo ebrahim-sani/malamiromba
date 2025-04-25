@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Bounce, toast } from "react-toastify";
 import Link from "next/link";
 
 type Course = {
