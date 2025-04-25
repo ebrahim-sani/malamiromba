@@ -88,7 +88,7 @@ export default function Donate() {
    return (
       <main className="flex flex-col">
          <div className="fixed top-0 left-0 w-full z-50">
-            <Navbar />
+            <Navbar onAboutClick={() => console.log("About clicked")} />
          </div>
          <motion.section
             className="py-20 flex px-4 sm:px-6 md:px-8 lg:px-12 bg-white min-h-screen items-start md:items-center justify-center"
@@ -367,7 +367,7 @@ export default function Donate() {
             </div>
          </motion.section>
 
-         <Footer />
+         <Footer onAboutClick={() => console.log("Footer About clicked")} />
       </main>
    );
 }
