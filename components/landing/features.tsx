@@ -50,7 +50,7 @@ export default function Features() {
          description:
             "Join live (virtual) interactive bootcamps. Get real-time mentorship, solve real problems, and gain exposure.",
          cta: "Explore bootcamps",
-         ctaLink: "#",
+         ctaLink: "#bootcamp",
       },
       {
          id: 2,
@@ -59,7 +59,7 @@ export default function Features() {
          description:
             "Access bite-sized learning modules, expert tutorials, and practical exercises anywhere, anytime.",
          cta: "Explore bootcamps",
-         ctaLink: "#",
+         ctaLink: "#bootcamp",
       },
    ];
 

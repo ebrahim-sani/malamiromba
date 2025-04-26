@@ -27,27 +27,27 @@ export default function BootcampsSection() {
          image: "/images/product-management.jpg",
          slots: 48,
          duration: "4 Weeks",
-         startDate: "August 18, 2025",
+         startDate: "JUNE 9, 2025",
       },
       {
          id: 2,
-         title: "Creative design",
+         title: "Creative Design",
          description:
-            "Dive into UI/UX design principles, master industry-standard tools, and create stunning visual experiences for digital products.",
+            "Beginner-friendly training in graphics, branding, and product design. Get hands-on with industry tools, and start creating beautiful visuals.",
          image: "/images/creative-design.jpg",
          slots: 48,
          duration: "8 Weeks",
-         startDate: "August 18, 2025",
+         startDate: "JUNE 9, 2025",
       },
       {
          id: 3,
-         title: "Data analysis",
+         title: "Data Analysis",
          description:
             "Learn to analyze complex datasets, create meaningful insights, and make data-driven decisions using modern analytical tools.",
          image: "/images/data-analysis.jpg",
          slots: 48,
          duration: "8 Weeks",
-         startDate: "August 18, 2025",
+         startDate: "JUNE 9, 2025",
       },
       {
          id: 4,
@@ -57,7 +57,7 @@ export default function BootcampsSection() {
          image: "/images/digital-marketing.jpg",
          slots: 48,
          duration: "4 Weeks",
-         startDate: "August 18, 2025",
+         startDate: "JUNE 9, 2025",
       },
       {
          id: 5,
@@ -67,7 +67,7 @@ export default function BootcampsSection() {
          image: "/images/backend.jpg",
          slots: 48,
          duration: "8 Weeks",
-         startDate: "August 18, 2025",
+         startDate: "JUNE 9, 2025",
       },
       {
          id: 6,
@@ -77,17 +77,17 @@ export default function BootcampsSection() {
          image: "/images/basic-comp.jpg",
          slots: 48,
          duration: "4 Weeks",
-         startDate: "August 18, 2025",
+         startDate: "JUNE 9, 2025",
       },
       {
          id: 7,
-         title: "Web development",
+         title: "Web Development",
          description:
             "Learn modern web development technologies, build responsive websites, and master HTML, CSS, and JavaScript frameworks.",
          image: "/images/web-dev.jpg",
          slots: 48,
          duration: "4 Weeks",
-         startDate: "August 18, 2025",
+         startDate: "JUNE 9, 2025",
       },
    ];
 

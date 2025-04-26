@@ -4,7 +4,7 @@ export const notificationData = {
    message: "Join our upcoming Tech Workshop on AI Development",
    date: "June 15, 2024",
    time: "2:00 PM",
-   link: "/events/tech-workshop",
+   link: "https://lu.ma/leoznjsc",
    linkText: "Register now",
    dismissible: true,
 };
@@ -43,8 +43,14 @@ export const footerLinks = {
       { name: "About Us", href: "#about" },
       { name: "Our Team", href: "#team" },
       { name: "Partners", href: "#" },
-      { name: "For Candidates", href: "#" },
-      { name: "For Employers", href: "#" },
+      {
+         name: "For Candidates",
+         href: "https://docs.google.com/forms/d/1hvdKkXfWUfCCDq7C6toln9SZvc_NCD9k44WmsFCuZQk/edit",
+      },
+      {
+         name: "For Employers",
+         href: "https://docs.google.com/forms/d/1t9nUwl18qDQkKw_0X3xUlzA3K1eUpa3zUlf9Hth8Z80/edit",
+      },
    ],
    workWithUs: [
       {
@@ -63,13 +69,20 @@ export const footerLinks = {
       { name: "Contact", href: "#" },
    ],
    socialMedia: [
+      // {
+      //    name: "LinkedIn",
+      //    href: "https://www.linkedin.com/company/malamiromba/",
+      // },
       {
-         name: "LinkedIn",
-         href: "https://www.linkedin.com/company/malamiromba/",
+         name: "Slack community",
+         href: "https://join.slack.com/t/malamirombainstitute/shared_invite/zt-34ez4m6z8-pA6o7Jz~ikx6Kp6uUSRbew",
       },
-      { name: "WhatsApp community", href: "https://wa.link/oloq4b" },
-      { name: "X", href: "https://x.com/Malamiromba" },
-      { name: "Instagram", href: "https://www.instagram.com/malamirombaltd/" },
+      {
+         name: "WhatsApp community",
+         href: "https://whatsapp.com/channel/0029Vao9mQVG8l5FEnVvWH3B",
+      },
+      // { name: "X", href: "https://x.com/Malamiromba" },
+      // { name: "Instagram", href: "https://www.instagram.com/malamirombaltd/" },
    ],
    socialIcons: [
       {
@@ -247,7 +260,7 @@ export const agency_data = {
    aboutUs: {
       title: "About us",
       content:
-         "We're more than a tech mentorship platform. We're a movement of dreamers, builders, and changemakers, committed to using technology to uplift our communities and reshape the future of Northern Nigeria and beyond.\n\nAt Malamiromba Ltd, we blend purpose with innovation. As a community-driven edutech startup, we host the largest tech community for Arewa professionals, with 50,000+ members and 36+ active mentors.\n\nOur mission is simple: make tech skills accessible, relatable, and impactful.",
+         "We're more than a tech mentorship platform. We're a movement of dreamers, builders, and changemakers, committed to using technology to uplift our communities and reshape the future of Northern Nigeria and beyond.\n\nAt Malamiromba Ltd, we blend purpose with innovation. As a community-driven edutech startup, we host the largest tech community for Arewa professionals, with 25K+ members and 36+ active mentors.\n\nOur mission is simple: make tech skills accessible, relatable, and impactful.",
    },
    ourVision: {
       title: "Our Vision",
@@ -347,7 +360,7 @@ export const agency_data = {
             id: "arewa-job-placement",
             title: "Arewa job placement",
             description:
-               "Built at the intersection of tech and opportunity, Arewa JB is a smart career platform designed for Northern Nigeria. We connect talent with purpose—offering access to jobs, mentorship, and tech-driven upskilling for Arewa professionals ready to grow in the digital economy. Whether you're launching your career or leveling up, this is your bridge from ambition to achievement.",
+               "We connect talent with purpose—offering access to jobs, mentorship, and tech-driven upskilling for Arewa professionals ready to grow in the digital economy. Whether you're launching your career or leveling up, this is your bridge from ambition to achievement.",
             image: "/images/off2.png",
             content: {
                heading: "Schedule a FREE Consultation",

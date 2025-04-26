@@ -1,8 +1,11 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { FaWhatsapp } from "react-icons/fa6";
 
 type ArewJobPlacementProps = {
    data: any;
@@ -86,17 +89,17 @@ export default function ArewJobPlacement({ data }: ArewJobPlacementProps) {
                ))}
 
                <motion.div
-                  className="pt-4 space-y-4 cursor-pointer"
+                  className="pt-4 flex flex-row items-center gap-4 w-full cursor-pointer"
                   variants={itemVariants}
                >
                   <Link
-                     href="https://docs.google.com/forms/d/1YS6uuBlNdtHJ3iMFKEYH1OGGGlzigxBocFR36vOggC0/edit"
+                     href="https://docs.google.com/forms/d/1YS6uuBlNdtHJ3iMFKEYH1OGGGlzigxBocFR36vOggC0/viewform?edit_requested=true"
                      target="_blank"
                      rel="noopener noreferrer"
-                     className="text-accent w-full hover:text-accent/80 text-sm font-medium inline-block"
+                     className="flex-1 w-full"
                   >
                      <motion.button
-                        className="w-full bg-primary cursor-pointer hover:bg-primary/90 text-white rounded-full py-6"
+                        className="w-full bg-primary cursor-pointer hover:bg-primary/90 text-white rounded-full py-4 px-6 font-medium"
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.97 }}
                      >
@@ -104,7 +107,22 @@ export default function ArewJobPlacement({ data }: ArewJobPlacementProps) {
                      </motion.button>
                   </Link>
 
-                  <div className="text-center">{secondaryCta}</div>
+                  <Link
+                     href="https://whatsapp.com/channel/0029Vao9mQVG8l5FEnVvWH3B"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="text-accent cursor-pointer hover:text-accent/80 text-sm font-medium"
+                  >
+                     <Button
+                        className="h-13 w-13 rounded-full cursor-pointer"
+                        variant="outline"
+                        size="icon"
+                     >
+                        <FaWhatsapp className="h-5 w-5" />
+                     </Button>
+                  </Link>
+
+                  {/* <div className="text-center">{secondaryCta}</div> */}
                </motion.div>
             </motion.div>
          </div>

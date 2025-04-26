@@ -63,7 +63,7 @@ export default function Offerings({ data }: OfferingsSectionProps) {
             {activeOffering ? (
                <div className="mb-12">
                   <motion.button
-                     className="flex items-center text-accent hover:text-accent/80 mb-8 text-base sm:text-lg"
+                     className="flex items-center cursor-pointer text-accent hover:text-accent/80 mb-8 text-base sm:text-lg"
                      onClick={() => setActiveOffering(null)}
                      whileHover={{ x: -5 }}
                      whileTap={{ scale: 0.97 }}

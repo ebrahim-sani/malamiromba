@@ -31,6 +31,26 @@ export default function NotificationBanner({
    customClass = "",
 }: NotificationBannerProps) {
    const [isVisible, setIsVisible] = useState(true);
+   const [isMounted, setIsMounted] = useState(false);
+   const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+   useEffect(() => {
+      setIsMounted(true);
+      const checkScreenSize = () => {
+         setIsSmallScreen(window.innerWidth < 768);
+      };
+
+      checkScreenSize();
+      window.addEventListener("resize", checkScreenSize);
+      return () => window.removeEventListener("resize", checkScreenSize);
+   }, []);
+
+   const getMessage = () => {
+      if (!isMounted) return notification.message;
+      return isSmallScreen
+         ? `${notification.message.slice(0, 38)}...`
+         : notification.message;
+   };
 
    useEffect(() => {
       if (
@@ -81,13 +101,15 @@ export default function NotificationBanner({
       <div className={`w-full text-white ${customClass}`}>
          <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
             <div className="flex items-center space-x-3">
-               <div className={`${getBgColor()} p-1 rounded-full`}>
+               <div className={`${getBgColor()} inline p-1 rounded-full`}>
                   {getIcon()}
                </div>
                <div className="flex flex-col sm:flex-row sm:items-center sm:gap-3">
-                  <p className="text-sm font-medium">{notification.message}</p>
+                  <p className="text-[10px] md:text-sm font-medium text-clip">
+                     {getMessage()}
+                  </p>
                   {(notification.date || notification.time) && (
-                     <div className="flex items-center text-xs text-white/80 mt-1 sm:mt-0">
+                     <div className="hidden md:flex items-center text-xs text-white/80 mt-1 sm:mt-0">
                         {notification.date && (
                            <span className="flex items-center">
                               <Calendar className="h-3 w-3 mr-1" />
@@ -105,11 +127,13 @@ export default function NotificationBanner({
                </div>
             </div>
 
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-1 md:space-x-3">
                {notification.link && (
                   <Link
+                     target="_blank"
+                     rel="noopener noreferrer"
                      href={notification.link}
-                     className="text-xs font-medium underline hover:text-white/80 transition-colors"
+                     className="text-[10px] md:text-xs font-medium underline hover:text-white/80 transition-colors"
                   >
                      {notification.linkText || "Learn more"}
                   </Link>

@@ -10,6 +10,7 @@ import {
    FileText,
    LineChart,
 } from "lucide-react";
+import Link from "next/link";
 
 type TechConsultingProps = {
    data: any;
@@ -181,16 +182,25 @@ export default function TechConsulting({ data }: TechConsultingProps) {
             </div>
          </motion.div>
 
-         <motion.div
-            className="text-center mt-16 cursor-pointer"
-            variants={itemVariants}
+         <Link
+            href="https://wa.link/oloq4b"
+            target="_blank"
+            rel="noopener noreferrer"
          >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-               <Button className="bg-primary cursor-pointer hover:bg-primary/90 text-white px-8 py-6 rounded-full text-lg">
-                  {cta}
-               </Button>
+            <motion.div
+               className="text-center mt-16 cursor-pointer"
+               variants={itemVariants}
+            >
+               <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+               >
+                  <Button className="bg-primary cursor-pointer hover:bg-primary/90 text-white px-8 py-6 rounded-full text-lg">
+                     {cta}
+                  </Button>
+               </motion.div>
             </motion.div>
-         </motion.div>
+         </Link>
       </motion.div>
    );
 }

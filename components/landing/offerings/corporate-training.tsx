@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 type CorporateTrainingProps = {
    data: any;
@@ -91,17 +92,23 @@ export default function CorporateTraining({ data }: CorporateTrainingProps) {
                ))}
 
                <motion.div className="pt-4" variants={itemVariants}>
-                  <motion.div
-                     whileHover={{ scale: 1.05 }}
-                     whileTap={{ scale: 0.95 }}
+                  <Link
+                     href="https://wa.link/4uv9l2"
+                     target="_blank"
+                     rel="noopener noreferrer"
                   >
-                     <Button
-                        onClick={handleEmailClick}
-                        className="bg-primary cursor-pointer hover:bg-primary/90 text-white rounded-full px-8 py-6"
+                     <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                      >
-                        {cta}
-                     </Button>
-                  </motion.div>
+                        <Button
+                           onClick={handleEmailClick}
+                           className="bg-primary cursor-pointer hover:bg-primary/90 text-white rounded-full px-8 py-6"
+                        >
+                           {cta}
+                        </Button>
+                     </motion.div>
+                  </Link>
                </motion.div>
             </motion.div>
          </div>
