@@ -147,13 +147,13 @@ export default function AgencyServices({ data }: AgencyServicesProps) {
                            <div className="flex justify-between items-center">
                               <div className="flex items-center gap-2">
                                  <div className="h-2 w-2 bg-green-500 rounded-full animate-pulse"></div>
-                                 <p className="text-sm text-gray-500">
+                                 <p className="text-xs md:text-sm text-gray-500">
                                     29,789+ community members
                                  </p>
                               </div>
 
                               <motion.button
-                                 className="flex items-center cursor-pointer text-sm gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary font-medium hover:bg-primary/20 transition-colors"
+                                 className="hidden md:flex items-center cursor-pointer text-sm gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary font-medium hover:bg-primary/20 transition-colors"
                                  onClick={() => setIsPlaying(true)}
                                  whileHover={{ scale: 1.05 }}
                                  whileTap={{ scale: 0.95 }}

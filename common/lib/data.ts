@@ -113,7 +113,7 @@ export const teamMembers = [
    {
       id: 1,
       name: "Ibrahim Zubairu",
-      role: "Founder & Technical Product Manager",
+      role: "Founder, & Tech. Product Manager",
       image: "/images/ib-baba.jpg",
       linkedin: "https://www.linkedin.com/in/ibrahimbaba/",
       x: "https://x.com/@supersalafee",

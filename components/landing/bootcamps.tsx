@@ -148,7 +148,7 @@ export default function BootcampsSection() {
                      whileTap={{ scale: 0.97 }}
                   >
                      <Link
-                        href="https://docs.google.com/forms/d/1mNLcJW98v2iC7P5pBnUSCtW0phi-C3xaSBsk1CFXXlM/edit#settings"
+                        href="https://wa.link/4uv9l2"
                         target="_blank"
                         rel="noopener noreferrer"
                      >
