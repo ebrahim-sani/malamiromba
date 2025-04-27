@@ -21,7 +21,7 @@ const iconComponents = {
 };
 
 interface FooterProps {
-   onAboutClick: () => void;
+   onAboutClick?: () => void;
 }
 
 export default function Footer({ onAboutClick }: FooterProps) {
@@ -101,7 +101,7 @@ export default function Footer({ onAboutClick }: FooterProps) {
                      <button
                         onClick={(e) => {
                            e.preventDefault();
-                           onAboutClick();
+                           onAboutClick?.();
                         }}
                         className="text-gray-300 text-sm hover:text-white transition-colors duration-200"
                      >

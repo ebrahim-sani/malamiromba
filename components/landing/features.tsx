@@ -147,7 +147,8 @@ export default function Features() {
                                     </p>
                                     <span className="flex items-center justify-end">
                                        <Link
-                                          href={card.ctaLink}
+                                             href={card.ctaLink}
+                                             scroll={true}
                                           className="inline-flex font-semibold items-center text-white hover:text-accent transition-colors"
                                        >
                                           {card.cta}{" "}

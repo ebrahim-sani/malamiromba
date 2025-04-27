@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, RefObject } from "react";
 import { motion } from "framer-motion";
 import { Bell, Calendar, Megaphone, X, Clock } from "lucide-react";
 import Link from "next/link";
@@ -23,32 +23,66 @@ type NotificationBannerProps = {
    notification: NotificationData;
    onDismiss?: (id: string) => void;
    customClass?: string;
+   bannerRef?: RefObject<HTMLDivElement | null>;
 };
 
 export default function NotificationBanner({
    notification,
    onDismiss,
    customClass = "",
+   bannerRef,
 }: NotificationBannerProps) {
    const [isVisible, setIsVisible] = useState(true);
    const [isMounted, setIsMounted] = useState(false);
-   const [isSmallScreen, setIsSmallScreen] = useState(false);
+   const [screenSizes, setScreenSizes] = useState({
+      isSmall: false,
+      isXSmall: false,
+   });
 
    useEffect(() => {
+      if (typeof window === "undefined") return;
+
       setIsMounted(true);
+
       const checkScreenSize = () => {
-         setIsSmallScreen(window.innerWidth < 768);
+         const width = window.innerWidth;
+         const cssWidth = width / window.devicePixelRatio;
+
+         // console.log(
+         //    `Window width: ${width}px (CSS pixels: ${cssWidth.toFixed(2)}px)`,
+         // );
+
+         setScreenSizes((prevSizes) => ({
+            ...prevSizes,
+            isSmall: cssWidth >= 365 && cssWidth < 400,
+            isXSmall: cssWidth < 365,
+         }));
+      };
+      checkScreenSize();
+      let timeoutId: ReturnType<typeof setTimeout>;
+      const handleResize = () => {
+         clearTimeout(timeoutId);
+         timeoutId = setTimeout(checkScreenSize, 100);
       };
 
-      checkScreenSize();
-      window.addEventListener("resize", checkScreenSize);
-      return () => window.removeEventListener("resize", checkScreenSize);
+      window.addEventListener("resize", handleResize);
+
+      return () => {
+         window.removeEventListener("resize", handleResize);
+         clearTimeout(timeoutId);
+      };
    }, []);
 
    const getMessage = () => {
       if (!isMounted) return notification.message;
-      return isSmallScreen
-         ? `${notification.message.slice(0, 38)}...`
+
+      // console.log(screenSizes.isSmall);
+      // console.log(screenSizes.isXSmall);
+
+      return screenSizes.isSmall
+         ? `${notification.message.slice(0, 45)}...`
+         : screenSizes.isXSmall
+         ? `${notification.message.slice(0, 32)}...`
          : notification.message;
    };
 
@@ -98,7 +132,12 @@ export default function NotificationBanner({
    if (!isVisible) return null;
 
    return (
-      <div className={`w-full text-white ${customClass}`}>
+      <div
+         ref={bannerRef}
+         className={`${
+            !isMounted && "hidden"
+         } w-full text-white ${customClass}`}
+      >
          <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
             <div className="flex items-center space-x-3">
                <div className={`${getBgColor()} inline p-1 rounded-full`}>
@@ -144,6 +183,7 @@ export default function NotificationBanner({
                      className="text-white/80 hover:text-white cursor-pointer"
                      whileHover={{ scale: 1.1 }}
                      whileTap={{ scale: 0.9 }}
+                     aria-label="Dismiss notification"
                   >
                      <X className="h-4 w-4" />
                   </motion.button>

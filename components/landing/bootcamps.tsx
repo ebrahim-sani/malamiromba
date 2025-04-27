@@ -105,6 +105,7 @@ export default function BootcampsSection() {
    }) => {
       return (
          <motion.div
+            id="bootcamp"
             className="bg-white rounded-lg overflow-hidden shadow-md flex flex-col h-full"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

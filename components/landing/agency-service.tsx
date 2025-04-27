@@ -92,7 +92,7 @@ export default function AgencyServices({ data }: AgencyServicesProps) {
                   </motion.div>
 
                   <motion.div variants={itemVariants} className="pt-4">
-                     <motion.button
+                     <motion.div
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                      >
@@ -106,7 +106,7 @@ export default function AgencyServices({ data }: AgencyServicesProps) {
                               {cta}
                            </Button>
                         </Link>
-                     </motion.button>
+                     </motion.div>
                   </motion.div>
                </motion.div>
 
@@ -137,11 +137,11 @@ export default function AgencyServices({ data }: AgencyServicesProps) {
                            </h3>
 
                            <p className="text-gray-600 text-[8px] sm:text-xs mb-4">
-                              Discover how we're empowering Northern Nigeria's
-                              tech talent through innovative training,
-                              mentorship, and real-world projects. Join our
-                              thriving community of tech enthusiasts and
-                              professionals.
+                              Discover how we&apos;re empowering Northern
+                              Nigeria&apos;s tech talent through innovative
+                              training, mentorship, and real-world projects.
+                              Join our thriving community of tech enthusiasts
+                              and professionals.
                            </p>
 
                            <div className="flex justify-between items-center">

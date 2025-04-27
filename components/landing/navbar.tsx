@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -12,7 +12,7 @@ import type { NotificationData } from "./notification-banner";
 import NotificationBanner from "./notification-banner";
 
 type NavbarProps = {
-   onAboutClick: () => void;
+   onAboutClick?: () => void;
    notification?: NotificationData;
    showNotification?: boolean;
    onDismissNotification?: () => void;
@@ -27,6 +27,8 @@ export default function Navbar({
    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
    const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
    const [scrolled, setScrolled] = useState(false);
+   const [notificationHeight, setNotificationHeight] = useState(0);
+   const bannerRef = useRef<HTMLDivElement>(null);
    const pathname = usePathname();
 
    useEffect(() => {
@@ -47,6 +49,28 @@ export default function Navbar({
       return () => window.removeEventListener("resize", handleResize);
    }, []);
 
+   useEffect(() => {
+      if (!showNotification || !bannerRef.current) {
+         setNotificationHeight(0);
+         return;
+      }
+
+      const updateHeight = () => {
+         if (bannerRef.current) {
+            setNotificationHeight(bannerRef.current.offsetHeight);
+         }
+      };
+
+      updateHeight();
+
+      const observer = new ResizeObserver(updateHeight);
+      observer.observe(bannerRef.current);
+
+      return () => {
+         observer.disconnect();
+      };
+   }, [showNotification]);
+
    const toggleDropdown = (linkName: string) => {
       setActiveDropdown(activeDropdown === linkName ? null : linkName);
    };
@@ -66,13 +90,12 @@ export default function Navbar({
                notification={notification}
                onDismiss={onDismissNotification}
                customClass="bg-[linear-gradient(90deg,_#FFFFFF_0%,_#011F41_30%,_#FF0C0C_70%,_#FFFFFF_100%)]"
+               bannerRef={bannerRef}
             />
          )}
 
          <motion.div
-            className={`fixed ${
-               showNotification ? "top-[36px]" : "top-0"
-            } left-0 w-full h-16 md:h-20 backdrop-blur-md shadow-lg ${
+            className={`fixed top-[${notificationHeight}px] left-0 w-full h-16 md:h-20 backdrop-blur-md shadow-lg ${
                scrolled ? "bg-primary/95" : "bg-primary/90"
             } transition-all duration-300`}
             initial={{ y: -100, opacity: 0 }}
@@ -81,9 +104,7 @@ export default function Navbar({
          />
 
          <nav
-            className={`fixed ${
-               showNotification ? "top-[36px]" : "top-0"
-            } left-0 w-full px-4 md:px-8 py-3 md:py-4 transition-all duration-300`}
+            className={`fixed top-[${notificationHeight}px] left-0 w-full px-4 md:px-8 py-3 md:py-4 transition-all duration-300`}
          >
             <div className="max-w-7xl mx-auto flex items-center justify-between">
                <Link href="/">
@@ -121,8 +142,8 @@ export default function Navbar({
                               <a
                                  href="#about"
                                  onClick={(e) => {
-                                    e.preventDefault(); // Prevent default anchor behavior
-                                    onAboutClick(); // Call the callback
+                                    e.preventDefault();
+                                    onAboutClick?.();
                                  }}
                                  className="block px-3 py-2 text-white hover:text-accent transition-colors duration-200 relative"
                               >
@@ -258,9 +279,7 @@ export default function Navbar({
          <AnimatePresence>
             {isMobileMenuOpen && (
                <motion.div
-                  className={`fixed ${
-                     showNotification ? "top-[36px]" : "top-0"
-                  } inset-x-0 bottom-0 bg-primary z-40 pt-16 pb-6 px-4 overflow-y-auto`}
+                  className={`fixed top-[${notificationHeight}px] inset-x-0 bottom-0 bg-primary z-40 pt-16 pb-6 px-4 overflow-y-auto`}
                   initial={{ opacity: 0, x: "100%" }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: "100%" }}
@@ -281,7 +300,7 @@ export default function Navbar({
                                     href="#about"
                                     onClick={(e) => {
                                        e.preventDefault();
-                                       onAboutClick();
+                                       onAboutClick?.();
                                        setIsMobileMenuOpen(false);
                                     }}
                                     className="block py-4 text-lg font-medium text-white hover:text-accent"
