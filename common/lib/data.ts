@@ -232,7 +232,7 @@ export const teamMembers = [
       p_link: "https://www.behance.net/aleiloabiola",
       instagram: "",
       x: "",
-      profession: "",
+      profession: "designer",
    },
    {
       id: 12,
