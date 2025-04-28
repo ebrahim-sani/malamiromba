@@ -2,7 +2,7 @@ export const notificationData = {
    id: "event-1",
    type: "event",
    message: "Join our upcoming Tech Workshop on AI Development",
-   date: "June 15, 2024",
+   date: "June 15, 2025",
    time: "2:00 PM",
    link: "https://lu.ma/leoznjsc",
    linkText: "Register now",
