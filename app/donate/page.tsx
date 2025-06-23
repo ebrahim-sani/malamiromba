@@ -122,10 +122,10 @@ export default function Donate() {
                      laptops, books, or other tech gear for our community
                      members, please reach out to us on{" "}
                      <Link
-                        href="mailto:info@malamiromba.com"
+                        href="mailto:malamiromba@gmail.com"
                         className="text-accent hover:underline"
                      >
-                        info@malamiromba.com
+                        malamiromba@gmail.com
                      </Link>{" "}
                      so that we can plan delivery logistics. We appreciate the
                      gesture in advance :)
