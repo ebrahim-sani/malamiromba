@@ -110,14 +110,14 @@ export default function Donate() {
                >
                   <div className="flex items-start gap-4 mb-4">
                      <div className="bg-accent/20 p-2 rounded-full">
-                        <Gift className="h-6 w-6 text-accent" />
+                        <Gift className="h-4 md:h-6 w-4 md:w-6 text-accent" />
                      </div>
-                     <h2 className="text-xl sm:text-2xl font-bold text-primary">
+                     <h2 className="text-lg sm:text-xl font-bold text-primary">
                         Donate in kind
                      </h2>
                   </div>
 
-                  <p className="text-gray-700 mb-4">
+                  <p className="text-xs md:text-sm text-gray-700 mb-4">
                      We accept donations in kind. If you&apos;d like to donate
                      laptops, books, or other tech gear for our community
                      members, please reach out to us on{" "}
@@ -138,14 +138,14 @@ export default function Donate() {
                >
                   <div className="flex items-start gap-4 mb-4">
                      <div className="bg-accent/20 p-2 rounded-full">
-                        <Banknote className="h-6 w-6 text-accent" />
+                        <Banknote className="h-4 md:h-6 w-4 md:w-6 text-accent" />
                      </div>
-                     <h2 className="text-xl sm:text-2xl font-bold text-primary">
+                     <h2 className="text-lg sm:text-xl font-bold text-primary">
                         Donate in cash
                      </h2>
                   </div>
 
-                  <p className="text-gray-700 mb-6">
+                  <p className="text-xs md:text-sm text-gray-700 mb-6">
                      We recognize that every cash donation is significant, and
                      we&apos;re committed to ensuring that your donation has the
                      greatest possible impact. By donating to us, you&apos;ll be

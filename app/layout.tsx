@@ -6,7 +6,7 @@ import ScrollToTopButton from "@/components/landing/scroll-to-top";
 
 export const metadata: Metadata = {
    title: {
-      default: "Malamiromba Ltd. | Tech Community & Training Platform",
+      default: "Malamiromba Ltd. | Northern Largest Tech Community",
       template: "%s | Malamiromba Ltd.",
    },
    description:
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
       locale: "en_NG",
       url: "https://malamiromba.com",
       siteName: "Malamiromba Ltd.",
-      title: "Malamiromba Ltd. | Tech Community & Training Platform",
+      title: "Malamiromba Ltd. | Northern Largest Tech Community",
       description:
          "Join Northern Nigeria's largest tech community. We offer tech training, mentorship, consulting, and career development for aspiring tech professionals.",
       images: [
