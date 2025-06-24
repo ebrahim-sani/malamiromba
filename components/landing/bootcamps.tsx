@@ -128,7 +128,7 @@ export default function BootcampsSection() {
          title: "Physical Bootcamp",
          description:
             "Join our in-person bootcamps and gain hands-on skills in a collaborative environment. Coming soon to Kano, Abuja, Sokoto, Lagos, and Jigawa.",
-         image: "/images/bootcamps.jpg", // Make sure this matches the uploaded file's path in your project
+         image: "/images/bootcamps.jpg",
          slots: 48,
          duration: "4 Weeks",
          startDate: "Coming Soon",
