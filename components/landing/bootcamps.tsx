@@ -6,7 +6,6 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Link from "next/link";
-import { FaWhatsapp } from "react-icons/fa6";
 import { Badge } from "../ui/badge";
 
 type Course = {
@@ -19,6 +18,14 @@ type Course = {
    duration: string;
    startDate: string;
    opened?: boolean;
+   formLink?: string;
+};
+
+const generateSlug = (title: string): string => {
+   return title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "");
 };
 
 export default function BootcampsSection() {
@@ -32,12 +39,13 @@ export default function BootcampsSection() {
          slots: 48,
          duration: "4 Weeks",
          startDate: "JUNE 9, 2025",
+         formLink: "https://forms.gle/Gkz6sDvdoZMw6nxm7",
       },
       {
          id: 2,
          title: "Creative Design",
          description:
-            "Beginner-friendly training in graphics, branding, and product design. Get hands-on with industry tools, and start creating beautiful visuals.",
+            "Beginner-friendly training in graphics, branding, and product design. Get hands-on with industry tools, and start creating beautiful visuals.",
          image: "/images/creative-design.jpg",
          slots: 48,
          duration: "8 Weeks",
@@ -52,6 +60,7 @@ export default function BootcampsSection() {
          slots: 48,
          duration: "8 Weeks",
          startDate: "JUNE 9, 2025",
+         formLink: "https://forms.gle/7MQXWzFnP6nF8ehdA",
       },
       {
          id: 4,
@@ -62,6 +71,7 @@ export default function BootcampsSection() {
          slots: 48,
          duration: "4 Weeks",
          startDate: "JUNE 9, 2025",
+         formLink: "https://forms.gle/24nNkCfZrwLqf4Jv5",
       },
       {
          id: 5,
@@ -72,6 +82,7 @@ export default function BootcampsSection() {
          slots: 48,
          duration: "8 Weeks",
          startDate: "JUNE 9, 2025",
+         formLink: "https://forms.gle/TZgmFPSrHHK28pSF6",
       },
       {
          id: 6,
@@ -82,6 +93,7 @@ export default function BootcampsSection() {
          slots: 48,
          duration: "4 Weeks",
          startDate: "JUNE 9, 2025",
+         formLink: "https://forms.gle/Uz3jH8v9TzUC3e3M7",
       },
       {
          id: 7,
@@ -92,6 +104,7 @@ export default function BootcampsSection() {
          slots: 48,
          duration: "4 Weeks",
          startDate: "JUNE 9, 2025",
+         formLink: "https://forms.gle/JomvgxuE3qLRm5bQ6",
       },
       {
          id: 8,
@@ -112,6 +125,7 @@ export default function BootcampsSection() {
          slots: 48,
          duration: "4 Weeks",
          startDate: "JUNE 9, 2025",
+         formLink: "https://forms.gle/pnojRCz8i4gTqP4r9",
       },
       {
          id: 10,
@@ -122,18 +136,19 @@ export default function BootcampsSection() {
          slots: 48,
          duration: "4 Weeks",
          startDate: "JUNE 9, 2025",
+         formLink: "https://forms.gle/4RZveCdv1C8yRj9Y9",
       },
       {
          id: 11,
          title: "Physical Bootcamp",
          description:
             "Join our in-person bootcamps and gain hands-on skills in a collaborative environment. Coming soon to Kano, Abuja, Sokoto, Lagos, and Jigawa.",
-         image: "/images/bootcamps.jpg", // Make sure this matches the uploaded file's path in your project
+         image: "/images/bootcamps.jpg",
          slots: 48,
          duration: "4 Weeks",
          startDate: "Coming Soon",
          type: "physical",
-         opened: false,
+         formLink: "https://forms.gle/Jg79Cqgs2KPpSWRz5",
       },
    ];
 
@@ -160,6 +175,8 @@ export default function BootcampsSection() {
       index: number;
       opened?: boolean;
    }) => {
+      const courseSlug = generateSlug(course.title);
+
       return (
          <motion.div
             id="bootcamp"
@@ -189,14 +206,12 @@ export default function BootcampsSection() {
                   placeholder="blur"
                   blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                />
-
                <div className="absolute top-3 right-4">
                   <Badge className="bg-neutral-100 text-green-500 border border-neutral-300 font-extralight px-3 py-1 text-xs">
                      {opened ? "Open" : "Coming soon!"}
                   </Badge>
                </div>
             </div>
-
             <div className="p-6 flex flex-col flex-grow space-y-4">
                <div className="space-y-3">
                   <h3 className="font-bold text-xl text-gray-900 leading-tight line-clamp-2">
@@ -207,16 +222,6 @@ export default function BootcampsSection() {
                   </p>
                </div>
 
-               {/* Commented out sections as requested */}
-               {/* 
-               <div className="text-xs text-gray-500 mb-2">
-                 {course.slots} available slots | <span className="text-green-600">open</span>
-               </div>
-               <div className="text-xs text-gray-500 mb-4">
-                 {course.duration} | Starting {course.startDate}
-               </div>
-               */}
-
                <div className="mt-auto pt-4">
                   <motion.div
                      whileHover={{ scale: 1.02 }}
@@ -224,22 +229,20 @@ export default function BootcampsSection() {
                      className="w-full"
                   >
                      <Link
-                        href="https://wa.link/4uv9l2"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href={`/courses/${courseSlug}`}
                         className="block w-full"
                      >
                         <Button
                            disabled={opened === false}
-                           className={`w-full ${
+                           className={`w-full cursor-pointer ${
                               opened === false
                                  ? "bg-primary/55"
-                                 : "bg-primary hover:bg-primary-foreground"
+                                 : "bg-primary hover:bg-primary/80"
                            } text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-2`}
                            variant="default"
                         >
-                           <FaWhatsapp className="h-5 w-5" />
-                           Enroll
+                           <ArrowRight className="h-5 w-5" />
+                           Enroll Now
                         </Button>
                      </Link>
                   </motion.div>
@@ -248,6 +251,7 @@ export default function BootcampsSection() {
          </motion.div>
       );
    };
+
    return (
       <section id="bootcamp" className="bg-white">
          <div className="py-16 px-4 md:px-8 max-w-7xl mx-auto">

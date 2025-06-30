@@ -5,6 +5,7 @@ import {
    institute_data,
    notificationData,
 } from "@/common/lib/data";
+import { partnersData } from "@/common/lib/partners";
 import {
    About,
    AgencyServices,
@@ -19,6 +20,7 @@ import {
    Team,
    WhatWeDo,
 } from "@/components/landing";
+import Partners from "@/components/landing/partners";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -96,6 +98,7 @@ export default function Home() {
                         <Bootcamps />
                      </>
                   )}
+                  <Partners data={partnersData} />
                   <Footer onAboutClick={handleAboutClick} />
                </motion.div>
             </AnimatePresence>

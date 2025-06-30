@@ -39,7 +39,7 @@ export default function Hero({ onTabChange, activeTab }: HeroSectionProps) {
             "Partner with us to find the right tech talent for your projects and business needs.",
          image: "/images/hero-section-people.svg",
          cta: "Get Estimate",
-         link: "https://wa.link/oloq4b",
+         link: "https://forms.gle/QTrKvZrRf51upDWD8",
       },
    };
 

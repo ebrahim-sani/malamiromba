@@ -212,14 +212,7 @@ export default function Navbar({
                                                       ? "noopener noreferrer"
                                                       : ""
                                                 }
-                                                href={
-                                                   item.name === "Volunteer" ||
-                                                   item.name === "Partner"
-                                                      ? "link" in item
-                                                         ? item.link
-                                                         : item.id
-                                                      : item.id
-                                                }
+                                                href={item.link}
                                                 className="block px-4 py-2 text-sm text-white hover:bg-accent/10 hover:text-accent transition-colors duration-200"
                                              >
                                                 {item.name}

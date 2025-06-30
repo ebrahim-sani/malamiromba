@@ -1,7 +1,7 @@
 export const notificationData = {
    id: "event-1",
    type: "event",
-   message: "Join our upcoming tech workshop/webinar here",
+   message: "Join our upcoming tech workshop & webinar",
    date: "June 15, 2024",
    time: "2:00 PM",
    link: "https://lu.ma/user/Malamiromba",
@@ -16,8 +16,16 @@ export const links = [
       id: "#events",
       name: "Events",
       dropdown: [
-         { id: "#upcoming-events", name: "Upcoming Events" },
-         { id: "#past-events", name: "Past Events" },
+         {
+            id: "#upcoming-events",
+            name: "Upcoming Events",
+            link: "https://lu.ma/user/Malamiromba",
+         },
+         {
+            id: "#past-events",
+            name: "Past Events",
+            link: "https://facebook.com/groups/skillsarewa/",
+         },
       ],
    },
    {
