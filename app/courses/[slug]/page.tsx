@@ -3,37 +3,38 @@ import type { Metadata } from "next";
 import { getCourseBySlug } from "@/lib/courses-data";
 import CourseRegistrationPage from "@/components/course-reg-page";
 
-interface CoursePageProps {
-   params: {
-      slug: string;
-   };
+interface PageProps {
+   params: Promise<{ slug: string }>;
+   searchParams: Promise<Record<string, string | string[]>>;
 }
 
 export async function generateMetadata({
    params,
-}: CoursePageProps): Promise<Metadata> {
-   const course = getCourseBySlug(params.slug);
+}: PageProps): Promise<Metadata> {
+   const { slug: rawSlug } = await params;
+   const slug = Array.isArray(rawSlug) ? rawSlug[0] : rawSlug;
+   const course = getCourseBySlug(slug);
 
    if (!course) {
-      return {
-         title: "Course Not Found",
-      };
+      return { title: "Course Not Found" };
    }
 
    return {
-      title: `${course.title} - Course Registration`,
+      title: `${course.title} – Course Registration`,
       description: course.description,
       openGraph: {
-         title: `${course.title} - Course Registration`,
+         title: `${course.title} – Course Registration`,
          description: course.description,
          images: [course.image],
       },
    };
 }
 
-export default function CoursePage({ params }: CoursePageProps) {
-   const course = getCourseBySlug(params?.slug);
+export default async function CoursePage({ params }: PageProps) {
+   const { slug: rawSlug } = await params;
+   const slug = Array.isArray(rawSlug) ? rawSlug[0] : rawSlug;
 
+   const course = getCourseBySlug(slug);
    if (!course) {
       notFound();
    }
