@@ -36,7 +36,7 @@ export default function BootcampsSection() {
          description:
             "Master the art of product management, from ideation to launch. Learn market research, roadmap planning, and agile methodologies.",
          image: "/images/product-management.jpg",
-         slots: 48,
+         slots: 50,
          duration: "4 Weeks",
          startDate: "JUNE 9, 2025",
          formLink: "https://forms.gle/Gkz6sDvdoZMw6nxm7",
@@ -47,7 +47,7 @@ export default function BootcampsSection() {
          description:
             "Beginner-friendly training in graphics, branding, and product design. Get hands-on with industry tools, and start creating beautiful visuals.",
          image: "/images/creative-design.jpg",
-         slots: 48,
+         slots: 50,
          duration: "8 Weeks",
          startDate: "JUNE 9, 2025",
       },
@@ -57,7 +57,7 @@ export default function BootcampsSection() {
          description:
             "Learn to analyze complex datasets, create meaningful insights, and make data-driven decisions using modern analytical tools.",
          image: "/images/data-analysis.jpg",
-         slots: 48,
+         slots: 50,
          duration: "8 Weeks",
          startDate: "JUNE 9, 2025",
          formLink: "https://forms.gle/7MQXWzFnP6nF8ehdA",
@@ -68,7 +68,7 @@ export default function BootcampsSection() {
          description:
             "Master digital marketing strategies, from SEO and social media to content marketing and analytics-driven campaign optimization.",
          image: "/images/digital-marketing.jpg",
-         slots: 48,
+         slots: 50,
          duration: "4 Weeks",
          startDate: "JUNE 9, 2025",
          formLink: "https://forms.gle/24nNkCfZrwLqf4Jv5",
@@ -79,7 +79,7 @@ export default function BootcampsSection() {
          description:
             "Build robust server-side applications, design APIs, and master database management using modern backend technologies.",
          image: "/images/backend.jpg",
-         slots: 48,
+         slots: 50,
          duration: "8 Weeks",
          startDate: "JUNE 9, 2025",
          formLink: "https://forms.gle/TZgmFPSrHHK28pSF6",
@@ -90,7 +90,7 @@ export default function BootcampsSection() {
          description:
             "Get started with essential computer skills, including office software, internet navigation, and fundamental digital literacy.",
          image: "/images/basic-comp.jpg",
-         slots: 48,
+         slots: 50,
          duration: "4 Weeks",
          startDate: "JUNE 9, 2025",
          formLink: "https://forms.gle/Uz3jH8v9TzUC3e3M7",
@@ -101,7 +101,7 @@ export default function BootcampsSection() {
          description:
             "Learn modern web development technologies, build responsive websites, and master HTML, CSS, and JavaScript frameworks.",
          image: "/images/web-dev.jpg",
-         slots: 48,
+         slots: 50,
          duration: "4 Weeks",
          startDate: "JUNE 9, 2025",
          formLink: "https://forms.gle/JomvgxuE3qLRm5bQ6",
@@ -112,28 +112,28 @@ export default function BootcampsSection() {
          description:
             "Learn the foundations of video editing using popular tools. Cut, trim, and enhance footage to create engaging and professional content.",
          image: "/images/video-editing.jpg",
-         slots: 48,
+         slots: 50,
          duration: "4 Weeks",
          startDate: "JUNE 9, 2025",
       },
-      {
-         id: 9,
-         title: "GenAI Accelerator for Business",
-         description:
-            "Explore how Generative AI transforms modern businesses. Learn to integrate AI tools for automation, content, and strategic advantage.",
-         image: "/images/genai-business.jpg",
-         slots: 48,
-         duration: "4 Weeks",
-         startDate: "JUNE 9, 2025",
-         formLink: "https://forms.gle/pnojRCz8i4gTqP4r9",
-      },
+      // {
+      //    id: 9,
+      //    title: "GenAI Accelerator for Business",
+      //    description:
+      //       "Explore how Generative AI transforms modern businesses. Learn to integrate AI tools for automation, content, and strategic advantage.",
+      //    image: "/images/genai-business.jpg",
+      //    slots: 50,
+      //    duration: "4 Weeks",
+      //    startDate: "JUNE 9, 2025",
+      //    formLink: "https://forms.gle/pnojRCz8i4gTqP4r9",
+      // },
       {
          id: 10,
          title: "GenAI Skill Up",
          description:
             "Level up your knowledge of Generative AI with practical skills. Learn prompt engineering, tool workflows, and real-world applications.",
          image: "/images/genai-skillup.jpg",
-         slots: 48,
+         slots: 50,
          duration: "4 Weeks",
          startDate: "JUNE 9, 2025",
          formLink: "https://forms.gle/4RZveCdv1C8yRj9Y9",
@@ -144,11 +144,22 @@ export default function BootcampsSection() {
          description:
             "Join our in-person bootcamps and gain hands-on skills in a collaborative environment. Coming soon to Kano, Abuja, Sokoto, Lagos, and Jigawa.",
          image: "/images/bootcamps.jpg",
-         slots: 48,
+         slots: 50,
          duration: "4 Weeks",
          startDate: "Coming Soon",
          type: "physical",
          formLink: "https://forms.gle/Jg79Cqgs2KPpSWRz5",
+      },
+      {
+         id: 1,
+         title: "Tech‑Business School",
+         description:
+            "Courses specifically designed for businesses and organizational teams. Each module ties real‑world business challenges into a logical, skills‑first learning path.",
+         image: "/images/tech-buss.jpg",
+         slots: 50,
+         duration: "1 Month",
+         startDate: "JUNE 9, 2025",
+         formLink: "https://forms.gle/yk5ShE2oABXzvwPW6",
       },
    ];
 

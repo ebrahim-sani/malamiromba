@@ -22,25 +22,61 @@ import {
 } from "@/components/landing";
 import Partners from "@/components/landing/partners";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-   const [activeTab, setActiveTab] = useState("Institute");
+   const router = useRouter();
+
+   const [activeTab, setActiveTab] = useState(() => {
+      if (typeof window !== "undefined") {
+         return localStorage.getItem("activeTab") || "Institute";
+      }
+      return "Institute";
+   });
+
    const [showNotification, setShowNotification] = useState(true);
    const [currentData, setCurrentData] = useState<
-      typeof institute_data | typeof agency_data | any
-   >(institute_data);
+      typeof agency_data | typeof institute_data | any
+   >(() => {
+      if (typeof window !== "undefined") {
+         const savedTab = localStorage.getItem("activeTab") || "Institute";
+         return savedTab === "Institute" ? institute_data : agency_data;
+      }
+      return institute_data;
+   });
 
    useEffect(() => {
       setCurrentData(activeTab === "Institute" ? institute_data : agency_data);
    }, [activeTab]);
 
+   useEffect(() => {
+      const currentParams = new URLSearchParams(window.location.search);
+      const newTab = activeTab.toLowerCase();
+
+      if (newTab === "agency") {
+         currentParams.set("tab", "agency");
+      } else {
+         currentParams.delete("tab");
+      }
+
+      const newUrl = `${window.location.pathname}${
+         currentParams.toString() ? "?" + currentParams.toString() : ""
+      }`;
+
+      if (newUrl !== window.location.pathname + window.location.search) {
+         router.replace(newUrl, { scroll: false });
+      }
+   }, [activeTab, router]);
+
    const handleTabChange = (tab: string) => {
       setActiveTab(tab);
+      localStorage.setItem("activeTab", tab);
    };
 
    const handleAboutClick = () => {
       setActiveTab("Agency");
+      localStorage.setItem("activeTab", "Agency");
       setTimeout(() => {
          const element = document.getElementById("about");
          if (element) {

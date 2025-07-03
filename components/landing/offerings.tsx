@@ -8,6 +8,7 @@ import { ArrowRight, ChevronLeft } from "lucide-react";
 import TechConsulting from "./offerings/tech-consulting";
 import ArewJobPlacement from "./offerings/job-placement";
 import CorporateTraining from "./offerings/corporate-training";
+import GenAICourseHero from "../GenAICourseHero";
 
 type OfferingsSectionProps = {
    data: {
@@ -28,8 +29,9 @@ export default function Offerings({ data }: OfferingsSectionProps) {
    const [hoveredCard, setHoveredCard] = useState<string | null>(null);
    const { title, subtitle, options } = data;
 
+   const offering = options.find((opt) => opt.id === activeOffering);
+
    const renderOfferingContent = () => {
-      const offering = options.find((opt) => opt.id === activeOffering);
       if (!offering) return null;
 
       switch (offering.id) {
@@ -45,7 +47,7 @@ export default function Offerings({ data }: OfferingsSectionProps) {
    };
 
    return (
-      <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-16 sm:py-20 lg:py-24  bg-gradient-to-br from-gray-50 to-white">
          <div className="max-w-7xl mx-auto">
             <motion.div
                className="text-center mb-12 lg:mb-16"
@@ -198,6 +200,10 @@ export default function Offerings({ data }: OfferingsSectionProps) {
                </motion.div>
             )}
          </div>
+
+         {activeOffering &&
+            offering &&
+            offering.id === "corporate-training" && <GenAICourseHero />}
       </section>
    );
 }
