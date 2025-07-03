@@ -825,7 +825,6 @@ export const coursesData: Course[] = [
       duration: "4 Weeks",
       startDate: "Coming Soon",
       type: "physical",
-      opened: false,
       formLink: "https://forms.gle/Jg79Cqgs2KPpSWRz5",
       features: [
          "In-Person Learning",
@@ -846,6 +845,80 @@ export const coursesData: Course[] = [
          "Complete real-world projects",
          "Receive personalized mentorship",
          "Join alumni community",
+      ],
+   },
+   {
+      id: 12,
+      title: "Tech‑Business School",
+      description:
+         "Courses specifically designed for businesses and organizational teams. Each module ties real‑world business challenges into a logical, skills‑first learning path.",
+      longDescription:
+         "In just 1 month, teams dive deep into core tech‑business fundamentals: strategic planning, digital tools adoption, cross‑functional communication and more. Every lesson is driven by real use‑cases so your organization can immediately apply what you learn.",
+      image: "/images/tech-buss.jpg",
+      slots: 50,
+      duration: "1 Month",
+      startDate: "JUNE 9, 2025",
+      formLink: "https://forms.gle/yk5ShE2oABXzvwPW6",
+      features: [
+         "Business‑driven curriculum",
+         "Hands‑on group workshops",
+         "Digital tools & platforms",
+         "Strategic planning exercises",
+         "Cross‑functional collaboration",
+      ],
+      prerequisites: [
+         "Aiming to bridge tech & business",
+         "Teams of 3+ participants",
+         "Basic computer literacy",
+      ],
+      outcomes: [
+         "Develop actionable tech‑business roadmaps",
+         "Implement digital tools effectively",
+         "Improve cross‑team communication",
+         "Drive measurable ROI on projects",
+      ],
+      targetAudience: [
+         {
+            title: "Business Leaders & Managers",
+            description:
+               "Align technical teams around strategic goals and digital initiatives.",
+         },
+         {
+            title: "Cross‑Functional Teams",
+            description:
+               "Sharpen collaboration between product, marketing, and engineering.",
+         },
+         {
+            title: "SMB Owners & Entrepreneurs",
+            description:
+               "Adopt scalable tech solutions to grow your business efficiently.",
+         },
+      ],
+      curriculum: [
+         {
+            week: 1,
+            title: "Strategy & Planning",
+            description:
+               "Define objectives, stakeholder mapping, and KPI frameworks.",
+         },
+         {
+            week: 2,
+            title: "Digital Tools & Workflows",
+            description:
+               "Hands‑on with collaboration, project management, and analytics platforms.",
+         },
+         {
+            week: 3,
+            title: "Cross‑Functional Alignment",
+            description:
+               "Workshops on communication, agile rituals, and decision‑making frameworks.",
+         },
+         {
+            week: 4,
+            title: "Capstone & Next Steps",
+            description:
+               "Team presentations, feedback sessions, and action‑plan roadmaps.",
+         },
       ],
    },
 ];
