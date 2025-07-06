@@ -28,9 +28,47 @@ export default function Footer({ onAboutClick }: FooterProps) {
    const [email, setEmail] = useState("");
    const [isSubmitting, setIsSubmitting] = useState(false);
    const [isSubmitted, setIsSubmitted] = useState(false);
+   const [status, setStatus] = useState<
+      "idle" | "sending" | "success" | "error"
+   >("idle");
 
    const footerRef = useRef(null);
    const isInView = useInView(footerRef, { once: true, amount: 0.2 });
+
+   // Mailchimp JSON-P endpoint (fix your U and ID)
+   const MAILCHIMP_URL =
+      "https://XYZ.us1.list-manage.com/subscribe/post-json?u=YOUR_U&id=YOUR_ID&c=?";
+
+   const handleSubmitt = async (e: React.FormEvent) => {
+      e.preventDefault();
+      setStatus("sending");
+
+      const formData = new URLSearchParams();
+      formData.append("EMAIL", email);
+      // add any hidden Mailchimp fields if needed:
+      // formData.append("b_YOUR_U_YOUR_ID", "");
+
+      try {
+         // JSON-P workaround: inject script tag
+         const callbackName = `mcCallback_${Date.now()}`;
+         (window as any)[callbackName] = (resp: any) => {
+            if (resp.result === "success") {
+               setStatus("success");
+               setEmail("");
+            } else {
+               setStatus("error");
+            }
+            delete (window as any)[callbackName];
+         };
+
+         const script = document.createElement("script");
+         script.src = `${MAILCHIMP_URL}&${formData.toString()}&c=${callbackName}`;
+         document.body.appendChild(script);
+      } catch (err) {
+         console.error(err);
+         setStatus("error");
+      }
+   };
 
    const handleSubmit = (e: React.FormEvent) => {
       e.preventDefault();

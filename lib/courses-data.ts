@@ -525,6 +525,8 @@ export const coursesData: Course[] = [
       slots: 50,
       duration: "4 Weeks",
       startDate: "JUNE 9, 2025",
+      formLink:
+         "https://docs.google.com/forms/d/e/1FAIpQLSemfsfMJoP0QnUs8EpFTOAZAse62KJoZ-mhUfMDnKoswjhwPQ/viewform?usp=sharing&ouid=105879208983633770652",
       features: [
          "Introduction to CapCut",
          "Adding audio or music to your video",

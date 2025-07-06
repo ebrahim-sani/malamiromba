@@ -37,10 +37,6 @@ export default function CorporateTraining({ data }: CorporateTrainingProps) {
       },
    };
 
-   const handleEmailClick = () => {
-      window.location.href = `mailto:malamiromba@gmail.com?subject=Corporate%20Training%20Inquiry`;
-   };
-
    return (
       <>
          <motion.div
@@ -95,7 +91,8 @@ export default function CorporateTraining({ data }: CorporateTrainingProps) {
 
                   <motion.div className="pt-4" variants={itemVariants}>
                      <Link
-                        href="https://wa.link/4uv9l2"
+                        // href="https://wa.link/4uv9l2"
+                        href="http://wa.link/ufabpi" // Bot
                         target="_blank"
                         rel="noopener noreferrer"
                      >
@@ -103,10 +100,7 @@ export default function CorporateTraining({ data }: CorporateTrainingProps) {
                            whileHover={{ scale: 1.05 }}
                            whileTap={{ scale: 0.95 }}
                         >
-                           <Button
-                              onClick={handleEmailClick}
-                              className="bg-primary cursor-pointer hover:bg-primary/90 text-white rounded-full px-8 py-6"
-                           >
+                           <Button className="bg-primary cursor-pointer hover:bg-primary/90 text-white rounded-full px-8 py-6">
                               {cta}
                            </Button>
                         </motion.div>
