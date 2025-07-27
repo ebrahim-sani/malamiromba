@@ -49,7 +49,6 @@ export default function ProductCard({ product }: ProductCardProps) {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                </div>
 
-               {/* Status Badge */}
                <div className="absolute top-4 right-4">
                   <Badge
                      className={`${statusInfo.className} flex items-center gap-1 text-[8px] md:text-xs`}
@@ -59,7 +58,6 @@ export default function ProductCard({ product }: ProductCardProps) {
                   </Badge>
                </div>
 
-               {/* Product Badges */}
                {product.badges && product.badges.length > 0 && (
                   <div className="absolute top-4 left-4 flex flex-wrap gap-2">
                      {product.badges.map((badge, index) => (
@@ -91,7 +89,6 @@ export default function ProductCard({ product }: ProductCardProps) {
                   {product.summary}
                </p>
 
-               {/* Technologies */}
                {product.technologies && product.technologies.length > 0 && (
                   <div className="mb-4">
                      <div className="flex flex-wrap gap-1">

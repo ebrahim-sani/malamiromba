@@ -90,7 +90,6 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
 
    return (
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
-         {/* Navigation */}
          <nav className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-gray-200">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                <div className="flex items-center justify-between h-16">
@@ -111,7 +110,6 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
             </div>
          </nav>
 
-         {/* Hero Section */}
          <section
             style={{
                background: "linear-gradient(90deg, #011F41 0%, #FF0C0C 100%)",
@@ -195,13 +193,10 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
             </div>
          </section>
 
-         {/* Main Content */}
          <section className="py-16 lg:py-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                <div className="grid lg:grid-cols-3 gap-12">
-                  {/* Main Content */}
                   <div className="lg:col-span-2 space-y-12">
-                     {/* Problem & Solution */}
                      <div className="space-y-8">
                         <Card className="border-l-4 border-l-red-500 bg-red-50/50">
                            <CardHeader>
@@ -232,7 +227,6 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
                         </Card>
                      </div>
 
-                     {/* Impact */}
                      {product.impact && product.impact.length > 0 && (
                         <Card className="bg-gradient-to-br from-blue-50 to-purple-50">
                            <CardHeader>
@@ -259,7 +253,6 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
                         </Card>
                      )}
 
-                     {/* Detailed Content */}
                      <Card>
                         <CardContent className="p-8">
                            <div className="prose prose-lg max-w-none">
@@ -341,7 +334,6 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
                         </CardContent>
                      </Card>
 
-                     {/* Gallery */}
                      {product.gallery && product.gallery.length > 0 && (
                         <Card>
                            <CardHeader>
@@ -372,7 +364,6 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
                         </Card>
                      )}
 
-                     {/* Demo Video */}
                      {product.demoUrl && (
                         <Card>
                            <CardHeader>
@@ -395,9 +386,7 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
                      )}
                   </div>
 
-                  {/* Sidebar */}
                   <div className="space-y-8">
-                     {/* Features */}
                      {product.features && product.features.length > 0 && (
                         <Card className="shadow-lg">
                            <CardHeader>
@@ -424,7 +413,6 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
                         </Card>
                      )}
 
-                     {/* Target Audience */}
                      {product.audience && product.audience.length > 0 && (
                         <Card className="shadow-lg">
                            <CardHeader>
@@ -449,7 +437,6 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
                         </Card>
                      )}
 
-                     {/* Technologies */}
                      {product.technologies &&
                         product.technologies.length > 0 && (
                            <Card className="shadow-lg">
@@ -475,7 +462,6 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
                            </Card>
                         )}
 
-                     {/* CTA Card */}
                      <Card className="shadow-lg bg-gradient-to-br from-blue-50 to-purple-50">
                         <CardContent className="p-6 text-center space-y-4">
                            <h3 className="text-xl font-bold text-gray-900">
@@ -506,7 +492,6 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
             </div>
          </section>
 
-         {/* Image Modal */}
          {selectedImage !== null && product.gallery && (
             <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4">
                <div className="relative max-w-4xl max-h-full">
