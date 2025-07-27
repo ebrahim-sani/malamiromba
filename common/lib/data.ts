@@ -48,8 +48,9 @@ export const links = [
 
 export const footerLinks = {
    company: [
-      { name: "About Us", href: "#about" },
-      { name: "Our Team", href: "#team" },
+      { name: "About Us", href: "/?tab=agency#about-us" },
+      { name: "Our Products", href: "/products" },
+      // { name: "Our Team", href: "/#team" },
       { name: "Partners", href: "#" },
       {
          name: "For Candidates",

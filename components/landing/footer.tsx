@@ -141,7 +141,7 @@ export default function Footer({ onAboutClick }: FooterProps) {
                            e.preventDefault();
                            onAboutClick?.();
                         }}
-                        className="text-gray-300 text-sm hover:text-white transition-colors duration-200"
+                        className="text-gray-300 text-sm cursor-pointer hover:text-white transition-colors duration-200"
                      >
                         {link.name}
                      </button>
