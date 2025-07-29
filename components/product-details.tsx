@@ -98,7 +98,9 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
                      className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
                   >
                      <ArrowLeft className="h-5 w-5" />
-                     <span className="font-medium">Back to Products</span>
+                     <span className="font-medium text-xs md:text-sm">
+                        Back to Products
+                     </span>
                   </button>
                   <Badge
                      className={`${statusInfo.className} flex items-center gap-1`}
@@ -129,11 +131,11 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                            {product.title}
                         </h1>
-                        <p className="text-xl md:text-2xl text-blue-100 leading-relaxed">
+                        <p className="text-base md:text-2xl text-blue-100 leading-relaxed">
                            {product.tagline}
                         </p>
                         {product.launchDate && (
-                           <p className="text-blue-200 flex items-center gap-2">
+                           <p className="text-blue-200 flex items-center gap-2 text-xs md:text-base">
                               {statusInfo.icon}
                               {statusInfo.prefix}:{" "}
                               {formatDate(product.launchDate)}
@@ -206,7 +208,7 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
                               </CardTitle>
                            </CardHeader>
                            <CardContent>
-                              <p className="text-gray-700 leading-relaxed">
+                              <p className="text-gray-700 leading-relaxed text-xs md:text-sm">
                                  {product.problem}
                               </p>
                            </CardContent>
@@ -220,7 +222,7 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
                               </CardTitle>
                            </CardHeader>
                            <CardContent>
-                              <p className="text-gray-700 leading-relaxed">
+                              <p className="text-gray-700 leading-relaxed text-xs md:text-sm">
                                  {product.solution}
                               </p>
                            </CardContent>
@@ -243,7 +245,7 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
                                        className="flex items-start gap-3"
                                     >
                                        <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
-                                       <span className="text-gray-700 font-medium">
+                                       <span className="text-gray-700 font-medium text-xs md:text-sm">
                                           {item}
                                        </span>
                                     </div>
@@ -263,7 +265,7 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
                                     }: {
                                        children?: React.ReactNode;
                                     }) => (
-                                       <h1 className="text-3xl font-bold text-gray-900 mb-6">
+                                       <h1 className="text-xl md:text-3xl font-bold text-gray-900 mb-6">
                                           {children}
                                        </h1>
                                     ),
@@ -272,7 +274,7 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
                                     }: {
                                        children?: React.ReactNode;
                                     }) => (
-                                       <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-8">
+                                       <h2 className="text-lg md:text-2xl font-bold text-gray-900 mb-4 mt-8">
                                           {children}
                                        </h2>
                                     ),
@@ -281,7 +283,7 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
                                     }: {
                                        children?: React.ReactNode;
                                     }) => (
-                                       <h3 className="text-xl font-semibold text-gray-900 mb-3 mt-6">
+                                       <h3 className="text-sm md:text-xl font-semibold text-gray-900 mb-3 mt-6">
                                           {children}
                                        </h3>
                                     ),
@@ -290,7 +292,7 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
                                     }: {
                                        children?: React.ReactNode;
                                     }) => (
-                                       <p className="text-gray-700 leading-relaxed mb-4">
+                                       <p className="text-xs md:text-sm text-gray-700 leading-relaxed mb-4">
                                           {children}
                                        </p>
                                     ),
@@ -300,7 +302,7 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
                                        children?: React.ReactNode;
                                     }) => (
                                        <blockquote className="border-l-4 border-blue-500 pl-6 py-2 my-6 bg-blue-50 rounded-r-lg">
-                                          <div className="text-gray-700 italic">
+                                          <div className="text-gray-700 text-xs md:text-sm italic">
                                              {children}
                                           </div>
                                        </blockquote>
@@ -310,7 +312,7 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
                                     }: {
                                        children?: React.ReactNode;
                                     }) => (
-                                       <ul className="space-y-2 mb-4">
+                                       <ul className="space-y-2 text-xs md:text-sm mb-4">
                                           {children}
                                        </ul>
                                     ),
@@ -403,7 +405,7 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
                                        className="flex items-start gap-2"
                                     >
                                        <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0" />
-                                       <span className="text-sm text-gray-700">
+                                       <span className="text-xs md:text-sm text-gray-700">
                                           {feature}
                                        </span>
                                     </li>
@@ -464,10 +466,10 @@ export default function ProductDetailPage({ product }: ProductDetailPageProps) {
 
                      <Card className="shadow-lg bg-gradient-to-br from-blue-50 to-purple-50">
                         <CardContent className="p-6 text-center space-y-4">
-                           <h3 className="text-xl font-bold text-gray-900">
+                           <h3 className="text-lg md:text-xl font-bold text-gray-900">
                               Interested in {product.title}?
                            </h3>
-                           <p className="text-gray-600">
+                           <p className="text-gray-600 text-sm md:text-base">
                               {product.status === "LIVE"
                                  ? "Get started today and transform your workflow."
                                  : "Join our waitlist to be notified when it launches."}

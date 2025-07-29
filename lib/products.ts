@@ -27,7 +27,7 @@ export const products: Product[] = [
       summary:
          "Empower educators and students with a dynamic LMS featuring interactive modules and built‑in gamification to drive motivation and retention.",
       status: "IN_DEVELOPMENT",
-      launchDate: "2024-12-01",
+      launchDate: "2025-08-31",
       problem:
          "Traditional Learning Management Systems are often static and passive, leading to low engagement, poor course completion rates, and minimal collaboration among learners.",
       solution:
@@ -52,7 +52,7 @@ Tath is an innovative Learning Management System designed to transform online ed
 - **📊 Analytics Dashboard**: Track learner progress, engagement, and outcomes in real time
 - **🛒 Content Marketplace**: Share, discover, and license courses within your organization
 
-> “Tath’s interactive modules have completely transformed our online training — completion rates and learner satisfaction have never been higher.” – Dr. Amina Yusuf, Head of eLearning at EduTech Labs`,
+> “Tath’s interactive modules have completely transformed our online training — completion rates and learner satisfaction have never been higher.” – Dr. Ibrahim Muhammad, Head of eLearning at EduTech Labs`,
       gallery: ["/assets/tath1.png", "/assets/tath2.png", "/assets/tath3.png"],
       features: [
          "🖱️ Drag‑and‑drop course builder",
