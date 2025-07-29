@@ -131,7 +131,7 @@ export default function Footer({ onAboutClick }: FooterProps) {
       links: { name: string; href: string }[];
    }) => (
       <div className="space-y-4">
-         <h3 className="text-md md:text-lg font-semibold mb-4">{title}</h3>
+         <h3 className="text-sm md:text-lg font-semibold mb-4">{title}</h3>
          <ul className="space-y-2">
             {links.map((link, index) => (
                <li key={index}>
@@ -141,7 +141,7 @@ export default function Footer({ onAboutClick }: FooterProps) {
                            e.preventDefault();
                            onAboutClick?.();
                         }}
-                        className="text-gray-300 text-sm cursor-pointer hover:text-white transition-colors duration-200"
+                        className="text-gray-300 text-xs md:text-sm cursor-pointer hover:text-white transition-colors duration-200"
                      >
                         {link.name}
                      </button>
@@ -149,7 +149,7 @@ export default function Footer({ onAboutClick }: FooterProps) {
                      <Link
                         target="_blank"
                         href={link.href}
-                        className="text-gray-300 text-sm hover:text-white transition-colors duration-200"
+                        className="text-gray-300 text-xs md:text-sm hover:text-white transition-colors duration-200"
                      >
                         {link.name}
                      </Link>
@@ -182,8 +182,10 @@ export default function Footer({ onAboutClick }: FooterProps) {
                   </div>
 
                   <div className="mt-6">
-                     <h3 className="text-lg font-semibold mb-3">Newsletter</h3>
-                     <p className="text-sm text-gray-300 mb-4">
+                     <h3 className="text-base md:text-lg font-semibold mb-3">
+                        Newsletter
+                     </h3>
+                     <p className="text-xs md:text-sm text-gray-300 mb-4">
                         Subscribe to Malamiromba email list for exclusive events
                         and future opportunities.
                      </p>
@@ -271,14 +273,14 @@ export default function Footer({ onAboutClick }: FooterProps) {
                         );
                      })}
                   </div>
-                  <p className="text-gray-300 text-sm hover:text-white transition-colors duration-200">
+                  <p className="text-gray-300 text-xs md:text-sm hover:text-white transition-colors duration-200">
                      malamiromba@gmail.com
                   </p>
                </motion.div>
             </motion.div>
 
             <motion.div
-               className="mt-12 pt-6 border-t border-gray-800 text-center text-sm text-gray-400"
+               className="mt-12 pt-6 border-t border-gray-800 text-center text-xs md:text-sm text-gray-400"
                initial={{ opacity: 0 }}
                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                transition={{ delay: 0.8 }}

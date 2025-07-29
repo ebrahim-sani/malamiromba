@@ -78,14 +78,14 @@ export default function ProductCard({ product }: ProductCardProps) {
                   <h3 className="text-xl font-bold text-gray-900 line-clamp-2">
                      {product.title}
                   </h3>
-                  <p className="text-sm font-medium text-blue-600">
+                  <p className="text-xs md:text-sm font-medium text-blue-600">
                      {product.tagline}
                   </p>
                </div>
             </CardHeader>
 
             <CardContent className="pt-0 px-4 flex flex-col h-full">
-               <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
+               <p className="text-gray-600 text-xs md:text-sm leading-relaxed mb-6 flex-grow">
                   {product.summary}
                </p>
 
@@ -119,7 +119,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                         background:
                            "linear-gradient(90deg, #011F41 0%, #FF0C0C 100%)",
                      }}
-                     className="w-full group text-white cursor-pointer"
+                     className="text-xs md:text-sm w-full group text-white cursor-pointer"
                   >
                      Learn More
                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
