@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import PaystackPop from "@paystack/inline-js";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import {
@@ -107,8 +106,10 @@ export default function Donate() {
       setTimeout(() => setCopied(null), 2000);
    };
 
-   const payWithPaystack = (e: any) => {
+   const payWithPaystack = async (e: any) => {
       e.preventDefault();
+      // Dynamic import to avoid SSR issues - PaystackPop accesses window on import
+      const PaystackPop = (await import("@paystack/inline-js")).default;
       const paystack = new PaystackPop();
       paystack.newTransaction({
          key: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY,
