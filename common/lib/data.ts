@@ -1,11 +1,9 @@
 export const notificationData = {
    id: "event-1",
    type: "event",
-   message: "Join our upcoming tech workshop & webinar",
+   message: "Join Our Upcoming Tech Workshop & Webinar",
    date: "June 15, 2024",
    time: "2:00 PM",
-   link: "https://lu.ma/user/Malamiromba",
-   linkText: "Register now",
    dismissible: true,
 };
 
@@ -13,34 +11,29 @@ export const links = [
    { id: "/", name: "Home" },
    { id: "#about", name: "About us" },
    {
-      id: "#events",
-      name: "Events",
+      id: "#projects",
+      name: "Projects",
       dropdown: [
          {
-            id: "#upcoming-events",
-            name: "Upcoming Events",
-            link: "https://lu.ma/user/Malamiromba",
-         },
-         {
-            id: "#past-events",
-            name: "Past Events",
-            link: "https://facebook.com/groups/skillsarewa/",
+            id: "#projects-edusync",
+            name: "Edusync",
+            link: "https://malamiromba.com/edusync",
          },
       ],
    },
    {
-      id: "#get-involved",
-      name: "Get Involved",
+      id: "#work-with-us",
+      name: "Work With Us",
       dropdown: [
          {
-            id: "#volunteer",
-            name: "Volunteer",
-            link: "https://docs.google.com/forms/d/1hvdKkXfWUfCCDq7C6toln9SZvc_NCD9k44WmsFCuZQk/edit",
+            id: "#work-individual",
+            name: "Individual",
+            link: "https://docs.google.com/forms/d/1hvdKkXfWUfCCDq7C6toln9SZvc_NCD9k44WmsFCuZQk/viewform",
          },
          {
-            id: "#partner",
-            name: "Partner",
-            link: "https://docs.google.com/forms/d/1t9nUwl18qDQkKw_0X3xUlzA3K1eUpa3zUlf9Hth8Z80/edit",
+            id: "#work-business",
+            name: "Business",
+            link: "https://docs.google.com/forms/d/1t9nUwl18qDQkKw_0X3xUlzA3K1eUpa3zUlf9Hth8Z80/viewform",
          },
       ],
    },
@@ -48,9 +41,8 @@ export const links = [
 
 export const footerLinks = {
    company: [
-      { name: "About Us", href: "/?tab=agency#about-us" },
-      { name: "Our Products", href: "/products" },
-      // { name: "Our Team", href: "/#team" },
+      { name: "About Us", href: "#about" },
+      { name: "Our Team", href: "#team" },
       { name: "Partners", href: "#" },
       {
          name: "For Candidates",
@@ -82,14 +74,7 @@ export const footerLinks = {
       //    name: "LinkedIn",
       //    href: "https://www.linkedin.com/company/malamiromba/",
       // },
-      {
-         name: "Slack community",
-         href: "https://join.slack.com/t/malamirombainstitute/shared_invite/zt-34ez4m6z8-pA6o7Jz~ikx6Kp6uUSRbew",
-      },
-      {
-         name: "WhatsApp community",
-         href: "https://whatsapp.com/channel/0029Vao9mQVG8l5FEnVvWH3B",
-      },
+      
       // { name: "X", href: "https://x.com/Malamiromba" },
       // { name: "Instagram", href: "https://www.instagram.com/malamirombaltd/" },
    ],
@@ -148,7 +133,7 @@ export const teamMembers = [
       role: "Creative Designer & Animator",
       image: "/images/babaja.jpg",
       linkedin: "https://www.linkedin.com/in/muhammad-abdullahi-babaja",
-      p_link: "https://dribbble.com/babajerh",
+      p_link: "",
       instagram: "",
       x: "https://x.com/@babajerh_design",
       profession: "designer",
@@ -238,10 +223,10 @@ export const teamMembers = [
       role: "Digital Growth & Creative Designer",
       image: "/images/aleio.jpg",
       linkedin: "https://www.linkedin.com/in/aleilo-qamardeen-9193ab141",
-      p_link: "https://www.behance.net/aleiloabiola",
+      p_link: "",
       instagram: "",
       x: "",
-      profession: "designer",
+      profession: "",
    },
    {
       id: 12,
@@ -257,181 +242,109 @@ export const teamMembers = [
 ];
 
 export const agency_data = {
-   heading: "Join Over 25K+ Community",
+   heading: "Our Products",
    services: [
-      "Active Tech Community",
-      "Vibrant Job Community",
-      "Training institute",
-      "Tech Consulting",
-      "1-on-1 Mentorship",
+      "Tathschool",
+      "E-Learning Provider",
+      "Edusync ng",
+      "EcoTalent App",
    ],
    cta: "Get started for free",
    aboutUs: {
-      title: "About us",
+      title: "About Us",
       content:
-         "We're more than a tech mentorship platform. We're a movement of dreamers, builders, and changemakers, committed to using technology to uplift our communities and reshape the future of Northern Nigeria and beyond.\n\nAt Malamiromba Ltd, we blend purpose with innovation. As a community-driven edutech startup, we host the largest tech community for Arewa professionals, with 25K+ members and 36+ active mentors.\n\nOur mission is simple: make tech skills accessible, relatable, and impactful.",
+         "At Malamiromba Ltd, we are a Northern Nigeria based software and media company on a mission: to empower people, businesses, and communities through technology, creativity, and opportunities.\n\nWe work with clients to build apps, websites, and digital solutions, craft branding and creative campaigns, and leverage AI and automation to make work simpler, smarter, and more impactful.",
    },
    ourVision: {
       title: "Our Vision",
       content:
-         "Empower 10,000+ African youth by 2030 through digital upskilling, job access, and tailored mentorship, especially for underserved communities.",
+         "To be the largest go-to hub in Northern Nigeria for freelancers, digital talent, and innovative solutions turning skills into opportunities and opportunities into real impact.",
    },
    whatWeDo: {
       title: "What We Do",
       content:
-         "Malamiromba Institute – Hands-on, high-income tech skills training in both English and Hausa. \n\nDigital Agency – Connecting top-tier talent with forward-thinking organizations, while creating content that inspires, educates, and drives change. \n\nWe’re building a future where growth, innovation, and impact are shared, together.",
+         "We create digital solutions that empower businesses, and at the same time, we equip freelancers, creators, and professionals with the skills and opportunities to grow, earn, and make an impact. Every project, every connection, and every opportunity is a step toward changing lives one at a time and building a stronger Northern Nigeria ecosystem.",
    },
    offerings: {
-      title: "Our offerings",
-      subtitle: "Explore top services tailored to your needs",
+      title: "Featured Projects",
+      subtitle: "Check out what we're working on",
       options: [
          {
-            id: "tech-consulting",
-            title: "Tech consulting",
+            id: "tathschool",
+            title: "Tathschool",
             description:
-               "Software, and tech solutions engineered to set you apart. We are very good at growing businesses with tech. start project",
-            image: "/images/off1.png",
-            content: {
-               heading:
-                  "We serve startups in need of MVP, small and growing business, including and government entities in need of technical firepower.",
-               subheading:
-                  "Our approach combines innovation and expertise to deliver exceptional results, ensuring your success at every stage of development.",
-               journey: {
-                  title: "Our process",
-                  steps: [
-                     {
-                        title: "Discovery + Planning",
-                        description:
-                           "We will meet you to discuss and understand your idea. Then we outline your business objectives, the market needs and align them with the overall product goals.",
-                        details:
-                           "We go further to research the target user, to find out how they would interact with your solution as well as the best platforms, and infrastructure to deliver your solution to them.",
-                     },
-                     {
-                        title: "Design + MVP",
-                        description:
-                           "We apply Human Centered Design to develop super simple interfaces, and experience that meet your  app goal with a smooth learning curve to the users.",
-                        details:
-                           "We quickly put out our Minimum Viable Product (MVP) which is a scaled down version of your app, get users feedbacks and only add what is expedient until we reach the goal.",
-                     },
-                     {
-                        title: "Build + Launch",
-                        description:
-                           "We employ a mix of Agile and traditional approach to bring your app to life with clean code that passes necessary test, before they are sent out.",
-                        details:
-                           "From the MVP, to a full product, we kep collecting feedback, iterating, and improving the user experience while adding needed features until the entire application ships fully.",
-                     },
-                     {
-                        title: "Support + Growth",
-                        description:
-                           "Product development is an ongoing exercise. Once the product goes into real world, we monitor how your customers interact with it, we walk with you all the way as your app grows to become a global phenom.",
-                        details:
-                           "We also help implement new features as the need arises, enhance existing ones and continue making improvements to enable you stay ahead of competitors.",
-                     },
-                  ],
-               },
-               deliverables: {
-                  title: "Deliverables at every stage",
-                  categories: [
-                     {
-                        name: "Plan",
-                        items: [
-                           "User Research",
-                           "Market Analysis",
-                           "Roadmap",
-                           "Strategy",
-                        ],
-                     },
-                     {
-                        name: "Build",
-                        items: [
-                           "Wireframes/Mockups",
-                           "Design System",
-                           "UI/UX Design",
-                           "Development",
-                           "Development",
-                           "Launch",
-                        ],
-                     },
-                     {
-                        name: "Grow",
-                        items: [
-                           "Usability test",
-                           "Support/ Maintenance",
-                           "Digital Marketing",
-                        ],
-                     },
-                  ],
-               },
-               cta: "Get estimated",
-            },
+               "E-Learning Provider — Making learning truly digital, simple, and memorable with short bilingual courses.",
          },
          {
-            id: "arewa-job-placement",
-            title: "Arewa job placement",
+            id: "edusync",
+            title: "Edusync ng",
             description:
-               "We connect talent with purpose—offering access to jobs, mentorship, and tech-driven upskilling for Arewa professionals ready to grow in the digital economy. Whether you're launching your career or leveling up, this is your bridge from ambition to achievement.",
-            image: "/images/off2.png",
-            content: {
-               heading: "Schedule a FREE Consultation",
-               steps: [
-                  {
-                     number: 1,
-                     title: "Discover our best matches",
-                     description:
-                        "Our trainers are professionals with real-world experience in the field of training.",
-                  },
-                  {
-                     number: 2,
-                     title: "Skip, save, or apply",
-                     description:
-                        "Your recommendations get smarter the more you interact.",
-                  },
-                  {
-                     number: 3,
-                     title: "Land your next role",
-                     description:
-                        "Apply smarter with useful insights and find your next dream job.",
-                  },
-               ],
-               image: "/images/off3.png",
-               cta: "Find a job",
-               secondaryCta: "See what we have done for others",
-            },
+               "Bridging The Digital Gap Between Classrooms and the AI Powered Future.",
          },
          {
-            id: "corporate-training",
-            title: "Corporate training",
+            id: "ecotalent",
+            title: "EcoTalent App",
             description:
-               "Develop your team We will get your team up to date with the latest tech education needed to boost your business. A tech savvy team saves time, achieves more and stands out. Reach your goals.",
-            image: "/images/off3.png",
-            content: {
-               heading:
-                  "Equip your team with the skill to take your organization to the next level.",
-               benefits: [
-                  {
-                     number: 1,
-                     title: "Professional.",
-                     description:
-                        "Our trainers are professionals with real-world experience in the field of training.",
-                  },
-                  {
-                     number: 2,
-                     title: "Connect.",
-                     description:
-                        "With top mentors and other industry professionals in your field.",
-                  },
-                  {
-                     number: 3,
-                     title: "Hands-on.",
-                     description:
-                        "Our trainings involve real-world scenarios for easy application of lessons.",
-                  },
-               ],
-               image: "/images/team-showcase.png",
-               cta: "Book program",
-            },
+               "The Northern Talent Ecosystem — Connecting talent, opportunities, and growth across the North.",
          },
       ],
+   },
+};
+
+export type HubData = {
+   eyebrow: string;
+   title: string;
+   subtitle: string;
+   description: string;
+   focusAreas: { title: string; copy: string }[];
+   stats: { label: string; value: string }[];
+   ctas: {
+      primary: { label: string; href: string };
+      secondary: { label: string; href: string };
+      tertiary?: { label: string; href: string };
+   };
+};
+
+export const hub_data: HubData = {
+   eyebrow: "Skills Arewa",
+   title: "Backing bold community ideas across society, environment, and country.",
+   subtitle: "Skills Arewa Hub advocates for digital inclusion, skills, and opportunity.",
+   description:
+      "Skills Arewa Hub started as an informal network that now feeds into the NGO arm of Malamiromba. We hold digital literacy bootcamps, youth empowerment labs, and culturally grounded community workrooms, keeping underserved learners — especially women — close to mentorship, safe spaces, and support circles.",
+   focusAreas: [
+      {
+         title: "Women in Tech Hausa (WTH)",
+         copy: "Women in Tech Hausa trains Hausa-speaking women and girls on essential tech and business skills, pairing mentorship, peer circles, and culturally rooted safe spaces that normalise women in digital roles.",
+      },
+      {
+         title: "Talents Fellowship",
+         copy: "Micro fellowships provide stipends, real project briefs, and accountability partners so promising learners can stay in school while shipping meaningful work.",
+      },
+      {
+         title: "Arewa Job Board",
+         copy: "A growing space where northern talent and new opportunities meet — from internships to partner roles — so community members can transition straight into dignified work.",
+      },
+   ],
+   stats: [
+      { label: "Community members", value: "60K+" },
+      { label: "Volunteers", value: "30" },
+      { label: "Core team members", value: "6" },
+      { label: "Learners supported", value: "3,000" },
+      { label: "Mentors", value: "08" },
+   ],
+   ctas: {
+      primary: {
+         label: "Join us",
+         href: "https://www.facebook.com/Malamiromba",
+      },
+      secondary: {
+         label: "Partner with the Hub",
+         href: "https://wa.link/oloq4b",
+      },
+      tertiary: {
+         label: "Download impact report",
+         href: "https://drive.google.com/malamiromba-impact-report",
+      },
    },
 };
 

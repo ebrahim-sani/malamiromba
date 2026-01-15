@@ -11,6 +11,8 @@ export { default as NotificationBanner } from "./notification-banner";
 export { default as OurVision } from "./our-vision";
 export { default as WhatWeDo } from "./what-we-do";
 export { default as Offerings } from "./offerings";
+export { default as FeaturedProjects } from "./featured-projects";
 export { default as TechConsulting } from "./../landing/offerings/tech-consulting";
 export { default as ArewJobPlacement } from "./../landing/offerings/job-placement";
 export { default as CorporateTraining } from "./../landing/offerings/corporate-training";
+export { default as HubShowcase } from "./hub";

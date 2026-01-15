@@ -1,0 +1,15 @@
+<svg width="160" height="120" viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title>Skills Arewa Hub Mark</title>
+  <desc>Placeholder badge symbol for the Skills Arewa Hub</desc>
+  <defs>
+    <linearGradient id="skillsGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFB703" />
+      <stop offset="100%" stop-color="#FB5607" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="20" width="152" height="80" rx="18" fill="#05142A" stroke="#0E233F" stroke-width="4" />
+  <path d="M32 84L48 48l16 24 16-36 16 36 16-24 16 36" fill="none" stroke="url(#skillsGradient)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="48" cy="44" r="6" fill="#FB5607" />
+  <circle cx="96" cy="44" r="6" fill="#FFB703" />
+  <text x="80" y="106" font-family="'Arial', 'Helvetica', sans-serif" font-size="14" text-anchor="middle" fill="#E2E8F0" letter-spacing="2">SKILLS AREWA HUB</text>
+</svg>

@@ -132,7 +132,7 @@ export default function Team() {
                            className="object-cover"
                         />
                      </motion.div>
-                     <h3 className="font-bold text-md md:text-lg text-primary">
+                     <h3 className="font-bold text-lg text-primary">
                         {member.name}
                      </h3>
                      <TeamMemberSocial member={member} />
@@ -171,7 +171,7 @@ function TeamMemberSocial({ member }: TeamMemberSocialProps) {
 
    return (
       <section id="team" className="flex flex-col gap-3 items-center">
-         <p className="text-xs md:text-sm text-gray-600 font-medium">{member.role}</p>
+         <p className="text-sm text-gray-600 font-medium">{member.role}</p>
 
          <div className="flex items-center space-x-2">
             {member.linkedin && (

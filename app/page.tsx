@@ -1,82 +1,30 @@
 "use client";
 
-import {
-   agency_data,
-   institute_data,
-   notificationData,
-} from "@/common/lib/data";
-import { partnersData } from "@/common/lib/partners";
+import { agency_data, hub_data, notificationData } from "@/common/lib/data";
 import {
    About,
    AgencyServices,
-   Bootcamps,
-   Events,
-   Features,
+   HubShowcase,
    Footer,
    Hero,
    Navbar,
-   Offerings,
+   FeaturedProjects,
    OurVision,
-   Team,
    WhatWeDo,
 } from "@/components/landing";
-import Partners from "@/components/landing/partners";
 import { motion, AnimatePresence } from "framer-motion";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Home() {
-   const router = useRouter();
+   const [activeTab, setActiveTab] = useState<"Agency" | "Hub">("Agency");
+   const [showNotification, setShowNotification] = useState(false);
 
-   const [activeTab, setActiveTab] = useState(() => {
-      if (typeof window !== "undefined") {
-         return localStorage.getItem("activeTab") || "Institute";
-      }
-      return "Institute";
-   });
-
-   const [showNotification, setShowNotification] = useState(true);
-   const [currentData, setCurrentData] = useState<
-      typeof agency_data | typeof institute_data | any
-   >(() => {
-      if (typeof window !== "undefined") {
-         const savedTab = localStorage.getItem("activeTab") || "Institute";
-         return savedTab === "Institute" ? institute_data : agency_data;
-      }
-      return institute_data;
-   });
-
-   useEffect(() => {
-      setCurrentData(activeTab === "Institute" ? institute_data : agency_data);
-   }, [activeTab]);
-
-   useEffect(() => {
-      const currentParams = new URLSearchParams(window.location.search);
-      const newTab = activeTab.toLowerCase();
-
-      if (newTab === "agency") {
-         currentParams.set("tab", "agency");
-      } else {
-         currentParams.delete("tab");
-      }
-
-      const newUrl = `${window.location.pathname}${
-         currentParams.toString() ? "?" + currentParams.toString() : ""
-      }`;
-
-      if (newUrl !== window.location.pathname + window.location.search) {
-         router.replace(newUrl, { scroll: false });
-      }
-   }, [activeTab, router]);
-
-   const handleTabChange = (tab: string) => {
+   const handleTabChange = (tab: "Agency" | "Hub") => {
       setActiveTab(tab);
-      localStorage.setItem("activeTab", tab);
    };
 
    const handleAboutClick = () => {
       setActiveTab("Agency");
-      localStorage.setItem("activeTab", "Agency");
       setTimeout(() => {
          const element = document.getElementById("about");
          if (element) {
@@ -119,22 +67,16 @@ export default function Home() {
                >
                   {activeTab === "Agency" && (
                      <>
-                        <AgencyServices data={currentData} />
-                        <About data={currentData.aboutUs} />
-                        <OurVision data={currentData.ourVision} />
-                        <WhatWeDo data={currentData.whatWeDo} />
-                        <Offerings data={currentData.offerings} />
+                        <AgencyServices data={agency_data} />
+                        <About data={agency_data.aboutUs} />
+                        <OurVision data={agency_data.ourVision} />
+                        <WhatWeDo data={agency_data.whatWeDo} />
+                        <FeaturedProjects data={agency_data.offerings} />
                      </>
                   )}
-                  {activeTab === "Institute" && (
-                     <>
-                        <Events />
-                        <Team />
-                        <Features />
-                        <Bootcamps />
-                     </>
+                  {activeTab === "Hub" && (
+                     <HubShowcase data={hub_data} />
                   )}
-                  <Partners data={partnersData} />
                   <Footer onAboutClick={handleAboutClick} />
                </motion.div>
             </AnimatePresence>
