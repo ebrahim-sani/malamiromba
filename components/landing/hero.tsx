@@ -4,18 +4,21 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Building, Briefcase, ArrowRight } from "lucide-react";
+import { Building, Briefcase, ArrowRight, Users } from "lucide-react";
 import Link from "next/link";
 
+type HeroTab = "Agency" | "Hub";
+
 type HeroSectionProps = {
-   onTabChange: (tab: string) => void;
-   activeTab: string;
+   onTabChange: (tab: HeroTab) => void;
+   activeTab: HeroTab;
 };
 
 export default function Hero({ onTabChange, activeTab }: HeroSectionProps) {
    const [currentWord, setCurrentWord] = useState(0);
 
-   const cyclingWords = ["Society", "Environment", "Country"];
+   const cyclingWords = ["Business", "Market", "Nation"];
+   const taglinePrefix = "BUILD. AUTOMATE. GROW for your";
    useEffect(() => {
       const interval = setInterval(() => {
          setCurrentWord((prev) => (prev + 1) % cyclingWords.length);
@@ -24,26 +27,38 @@ export default function Hero({ onTabChange, activeTab }: HeroSectionProps) {
       return () => clearInterval(interval);
    }, []);
 
-   const tabData = {
-      Institute: {
-         title: "Using tech to impact real change in the",
-         description:
-            "Discover tech jobs, connect with opportunities, and grow your career from the heart of Northern Nigeria.",
-         image: "/images/hero-section-people.svg",
-         cta: "Explore Programs",
-         link: "#bootcamp",
-      },
+   const tabData: Record<HeroTab, {
+      title: string;
+      description: string;
+      image: string;
+      cta: string;
+      link: string;
+   }> = {
       Agency: {
-         title: "Bridging Business and Tech Talent for a Resilient",
+         title: taglinePrefix,
          description:
             "Partner with us to find the right tech talent for your projects and business needs.",
          image: "/images/hero-section-people.svg",
          cta: "Get Estimate",
-         link: "https://forms.gle/QTrKvZrRf51upDWD8",
+         link: "https://wa.link/oloq4b",
+      },
+      Hub: {
+         title: taglinePrefix,
+         description:
+            "Backing bold community ideas across society, environment, and country. Skills Arewa Hub advocates for digital inclusion, skills, and opportunity.",
+         image: "/images/hero-section-people.svg",
+         cta: "Meet Skills Arewa",
+         link: "#skills-arewa",
       },
    };
 
-   const currentTabData = tabData[activeTab as keyof typeof tabData];
+   const currentTabData = tabData[activeTab];
+   const instituteUrl = "https://tath.school/";
+   const isExternalLink = currentTabData.link.startsWith("http");
+
+   const handleInstituteClick = () => {
+      window.open(instituteUrl, "_blank", "noopener,noreferrer");
+   };
 
    return (
       <section className="relative min-h-[calc(100vh-4rem)] md:min-h-[calc(100vh-25px)] w-full overflow-hidden">
@@ -72,22 +87,6 @@ export default function Hero({ onTabChange, activeTab }: HeroSectionProps) {
                   }}
                >
                   <motion.button
-                     onClick={() => onTabChange("Institute")}
-                     className={`flex items-center cursor-pointer px-4 py-2 md:px-6 md:py-2.5 rounded-full space-x-2 transition-colors duration-300 ${
-                        activeTab === "Institute"
-                           ? "bg-black/50 text-white"
-                           : "text-white"
-                     }`}
-                     whileHover={{ scale: 1.05 }}
-                     whileTap={{ scale: 0.95 }}
-                  >
-                     <Building className="w-4 h-4 md:w-5 md:h-5" />
-                     <span className="text-sm md:text-base font-medium">
-                        Institute
-                     </span>
-                  </motion.button>
-
-                  <motion.button
                      onClick={() => onTabChange("Agency")}
                      className={`flex items-center cursor-pointer px-4 py-2 md:px-6 md:py-2.5 rounded-full space-x-2 transition-colors duration-300 ${
                         activeTab === "Agency"
@@ -100,6 +99,34 @@ export default function Hero({ onTabChange, activeTab }: HeroSectionProps) {
                      <Briefcase className="w-4 h-4 md:w-5 md:h-5" />
                      <span className="text-sm md:text-base font-medium">
                         Agency
+                     </span>
+                  </motion.button>
+
+                  <motion.button
+                     onClick={handleInstituteClick}
+                     className="flex items-center cursor-pointer px-4 py-2 md:px-6 md:py-2.5 rounded-full space-x-2 text-white transition-colors duration-300"
+                     whileHover={{ scale: 1.05 }}
+                     whileTap={{ scale: 0.95 }}
+                  >
+                     <Building className="w-4 h-4 md:w-5 md:h-5" />
+                     <span className="text-sm md:text-base font-medium">
+                        Institute
+                     </span>
+                  </motion.button>
+
+                  <motion.button
+                     onClick={() => onTabChange("Hub")}
+                     className={`flex items-center cursor-pointer px-4 py-2 md:px-6 md:py-2.5 rounded-full space-x-2 transition-colors duration-300 ${
+                        activeTab === "Hub"
+                           ? "bg-black/50 text-white"
+                           : "text-white"
+                     }`}
+                     whileHover={{ scale: 1.05 }}
+                     whileTap={{ scale: 0.95 }}
+                  >
+                     <Users className="w-4 h-4 md:w-5 md:h-5" />
+                     <span className="text-sm md:text-base font-medium">
+                        Hub
                      </span>
                   </motion.button>
                </div>
@@ -155,19 +182,11 @@ export default function Hero({ onTabChange, activeTab }: HeroSectionProps) {
                         >
                            <Link
                               href={currentTabData.link}
-                              target={
-                                 currentTabData.link === "#bootcamp"
-                                    ? ""
-                                    : "_blank"
-                              }
-                              rel={
-                                 currentTabData.link === "#bootcamp"
-                                    ? ""
-                                    : "noreferrer"
-                              }
+                              target={isExternalLink ? "_blank" : undefined}
+                              rel={isExternalLink ? "noreferrer" : undefined}
                            >
                               <Button
-                                 className="bg-accent cursor-pointer hover:bg-accent/90 text-white rounded-full px-6 py-6 text-base"
+                                 className="bg-accent cursor-pointer font-bold hover:bg-accent/90 text-white rounded-full px-6 py-6 text-base"
                                  variant="default"
                               >
                                  {currentTabData.cta}{" "}

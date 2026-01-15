@@ -28,47 +28,9 @@ export default function Footer({ onAboutClick }: FooterProps) {
    const [email, setEmail] = useState("");
    const [isSubmitting, setIsSubmitting] = useState(false);
    const [isSubmitted, setIsSubmitted] = useState(false);
-   const [status, setStatus] = useState<
-      "idle" | "sending" | "success" | "error"
-   >("idle");
 
    const footerRef = useRef(null);
    const isInView = useInView(footerRef, { once: true, amount: 0.2 });
-
-   // Mailchimp JSON-P endpoint (fix your U and ID)
-   const MAILCHIMP_URL =
-      "https://XYZ.us1.list-manage.com/subscribe/post-json?u=YOUR_U&id=YOUR_ID&c=?";
-
-   const handleSubmitt = async (e: React.FormEvent) => {
-      e.preventDefault();
-      setStatus("sending");
-
-      const formData = new URLSearchParams();
-      formData.append("EMAIL", email);
-      // add any hidden Mailchimp fields if needed:
-      // formData.append("b_YOUR_U_YOUR_ID", "");
-
-      try {
-         // JSON-P workaround: inject script tag
-         const callbackName = `mcCallback_${Date.now()}`;
-         (window as any)[callbackName] = (resp: any) => {
-            if (resp.result === "success") {
-               setStatus("success");
-               setEmail("");
-            } else {
-               setStatus("error");
-            }
-            delete (window as any)[callbackName];
-         };
-
-         const script = document.createElement("script");
-         script.src = `${MAILCHIMP_URL}&${formData.toString()}&c=${callbackName}`;
-         document.body.appendChild(script);
-      } catch (err) {
-         console.error(err);
-         setStatus("error");
-      }
-   };
 
    const handleSubmit = (e: React.FormEvent) => {
       e.preventDefault();
@@ -131,7 +93,7 @@ export default function Footer({ onAboutClick }: FooterProps) {
       links: { name: string; href: string }[];
    }) => (
       <div className="space-y-4">
-         <h3 className="text-sm md:text-lg font-semibold mb-4">{title}</h3>
+         <h3 className="text-md md:text-lg font-semibold mb-4">{title}</h3>
          <ul className="space-y-2">
             {links.map((link, index) => (
                <li key={index}>
@@ -141,7 +103,7 @@ export default function Footer({ onAboutClick }: FooterProps) {
                            e.preventDefault();
                            onAboutClick?.();
                         }}
-                        className="text-gray-300 text-xs md:text-sm cursor-pointer hover:text-white transition-colors duration-200"
+                        className="text-gray-300 text-sm hover:text-white transition-colors duration-200"
                      >
                         {link.name}
                      </button>
@@ -149,7 +111,7 @@ export default function Footer({ onAboutClick }: FooterProps) {
                      <Link
                         target="_blank"
                         href={link.href}
-                        className="text-gray-300 text-xs md:text-sm hover:text-white transition-colors duration-200"
+                        className="text-gray-300 text-sm hover:text-white transition-colors duration-200"
                      >
                         {link.name}
                      </Link>
@@ -172,20 +134,18 @@ export default function Footer({ onAboutClick }: FooterProps) {
                <motion.div variants={itemVariants} className="space-y-6">
                   <div className="flex items-center space-x-2">
                      <Image
-                        src="/logo/malamiromba_logo.svg"
+                        src="/logo/malamiromba-white.png"
                         alt="Malamiromba Logo"
-                        width={40}
-                        height={40}
-                        className="w-10 h-10"
+                        width={60}
+                        height={60}
+                        className="object-contain"
                      />
                      <span className="text-xl font-bold">Malamiromba</span>
                   </div>
 
                   <div className="mt-6">
-                     <h3 className="text-base md:text-lg font-semibold mb-3">
-                        Newsletter
-                     </h3>
-                     <p className="text-xs md:text-sm text-gray-300 mb-4">
+                     <h3 className="text-lg font-semibold mb-3">Newsletter</h3>
+                     <p className="text-sm text-gray-300 mb-4">
                         Subscribe to Malamiromba email list for exclusive events
                         and future opportunities.
                      </p>
@@ -273,14 +233,14 @@ export default function Footer({ onAboutClick }: FooterProps) {
                         );
                      })}
                   </div>
-                  <p className="text-gray-300 text-xs md:text-sm hover:text-white transition-colors duration-200">
+                  <p className="text-gray-300 text-sm hover:text-white transition-colors duration-200">
                      malamiromba@gmail.com
                   </p>
                </motion.div>
             </motion.div>
 
             <motion.div
-               className="mt-12 pt-6 border-t border-gray-800 text-center text-xs md:text-sm text-gray-400"
+               className="mt-12 pt-6 border-t border-gray-800 text-center text-sm text-gray-400"
                initial={{ opacity: 0 }}
                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                transition={{ delay: 0.8 }}

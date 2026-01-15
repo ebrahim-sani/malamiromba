@@ -116,7 +116,7 @@ export default function Navbar({
                   >
                      <div className="relative w-10 h-10 md:w-12 md:h-12">
                         <Image
-                           src="/logo/malamiromba_logo.svg"
+                           src="/logo/malamiromba-white.png"
                            alt="malamiromba logo"
                            fill
                            className="object-contain"
@@ -202,17 +202,27 @@ export default function Navbar({
                                           {link.dropdown.map((item) => (
                                              <Link
                                                 key={item.id}
+                                                href={
+                                                   typeof item === "object" &&
+                                                   "link" in item &&
+                                                   item.link
+                                                      ? item.link
+                                                      : item.id
+                                                }
                                                 target={
-                                                   "link" in item && item.link
+                                                   typeof item === "object" &&
+                                                   "link" in item &&
+                                                   item.link
                                                       ? "_blank"
-                                                      : ""
+                                                      : undefined
                                                 }
                                                 rel={
-                                                   "link" in item && item.link
+                                                   typeof item === "object" &&
+                                                   "link" in item &&
+                                                   item.link
                                                       ? "noopener noreferrer"
-                                                      : ""
+                                                      : undefined
                                                 }
-                                                href={item.link}
                                                 className="block px-4 py-2 text-sm text-white hover:bg-accent/10 hover:text-accent transition-colors duration-200"
                                              >
                                                 {item.name}
@@ -336,7 +346,30 @@ export default function Navbar({
                                              {link.dropdown.map((item) => (
                                                 <Link
                                                    key={item.id}
-                                                   href={item.id}
+                                                      href={
+                                                         typeof item ===
+                                                            "object" &&
+                                                         "link" in item &&
+                                                         item.link
+                                                            ? item.link
+                                                            : item.id
+                                                      }
+                                                      target={
+                                                         typeof item ===
+                                                            "object" &&
+                                                         "link" in item &&
+                                                         item.link
+                                                            ? "_blank"
+                                                            : undefined
+                                                      }
+                                                      rel={
+                                                         typeof item ===
+                                                            "object" &&
+                                                         "link" in item &&
+                                                         item.link
+                                                            ? "noopener noreferrer"
+                                                            : undefined
+                                                      }
                                                    className="block py-3 px-6 text-gray-300 hover:text-accent"
                                                    onClick={() =>
                                                       setIsMobileMenuOpen(false)

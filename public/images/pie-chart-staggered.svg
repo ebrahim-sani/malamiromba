@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 10443.76 7473.3" width="100%" height="100%">
+  <!--
+    pie-chart-staggered.svg
+    - Loads /images/pie-chart.svg (same origin) and animates outlines slice-by-slice.
+    Usage notes:
+      - Open this file directly in the browser or embed with <object data="/images/pie-chart-staggered.svg"></object>
+      - If you embed via <img>, the JS won't run (SVG scripts are ignored when used as images).
+  -->
+  <style>
+    :root { --gap: 320ms; --stroke-duration: 700ms; }
+    .outline { fill: none; stroke-linecap: round; stroke-linejoin: round; opacity: 1; }
+    .hidden-fill { opacity: 0; transition: opacity 240ms linear; }
+  </style>
+  <g id="target"></g>
+  <script><![CDATA[
+    (async function(){
+      const svgNS = 'http://www.w3.org/2000/svg';
+      const container = document.getElementById('target');
+      try {
+        const resp = await fetch('/images/pie-chart.svg');
+        if(!resp.ok) throw new Error('fetch failed '+resp.status);
+        const txt = await resp.text();
+        const doc = new DOMParser().parseFromString(txt, 'image/svg+xml');
+        const srcSvg = doc.querySelector('svg');
+        if(!srcSvg) throw new Error('no svg found');
+        // Import all children into our document inside a group
+        const origGroup = document.createElementNS(svgNS,'g');
+        origGroup.setAttribute('id','original-art');
+        // hide fills initially
+        const sourceChildren = Array.from(srcSvg.childNodes).filter(n=>n.nodeType===1);
+        for(const ch of sourceChildren){
+          const imported = document.importNode(ch, true);
+          // set initial hidden fill
+          const elems = imported.querySelectorAll ? imported.querySelectorAll('*') : [];
+          if(imported.nodeType===1){
+            elems.forEach(e=>{
+              if(e.hasAttribute && e.hasAttribute('fill')){
+                e.classList.add('hidden-fill');
+              }
+            });
+            if(imported.hasAttribute && imported.hasAttribute('fill')){
+              imported.classList.add('hidden-fill');
+            }
+          }
+          origGroup.appendChild(imported);
+        }
+        container.appendChild(origGroup);
+
+        // gather drawable elements
+        const drawable = Array.from(origGroup.querySelectorAll('path, circle, rect, ellipse, polygon, polyline'));
+        // create overlay group for outlines
+        const outlineGroup = document.createElementNS(svgNS,'g');
+        outlineGroup.setAttribute('id','outlines');
+        container.appendChild(outlineGroup);
+
+        // compute stagger and animate
+        let delay = 0;
+        const gap = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--gap')) || 320;
+        const strokeDuration = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--stroke-duration')) || 700;
+
+        for(let i=0;i<drawable.length;i++){
+          const el = drawable[i];
+          // read fill color to use as stroke so outline matches
+          let fill = el.getAttribute('fill') || '#000';
+          if(fill==='none') fill = '#000';
+          const clone = el.cloneNode(true);
+          // remove any existing id to avoid collisions
+          if(clone.getAttribute) clone.removeAttribute('id');
+          clone.setAttribute('fill','none');
+          clone.setAttribute('stroke', fill);
+          // Stroke width: small relative fallback
+          clone.setAttribute('stroke-width', Math.max(2, (parseFloat(el.getAttribute('stroke-width')||2))));
+          clone.classList.add('outline');
+
+          // ensure clone is appended to outlineGroup
+          outlineGroup.appendChild(clone);
+
+          // compute length (try-catch because getTotalLength not available on some nodes in some browsers until in DOM)
+          let length = 0;
+          try{ length = clone.getTotalLength(); }catch(e){
+            try{ const bbox = el.getBBox(); length = (bbox.width + bbox.height) * 2; }catch(e2){ length = 1000; }
+          }
+          // initialize stroke dash
+          clone.style.strokeDasharray = length;
+          clone.style.strokeDashoffset = length;
+          clone.style.transition = `stroke-dashoffset ${strokeDuration}ms ease`; 
+
+          // hide original fill (already hidden with class) then schedule stroke and reveal
+          (function(origEl, outEl, thisDelay){
+            setTimeout(()=>{
+              outEl.style.strokeDashoffset = '0';
+            }, thisDelay);
+            // after outline drawn, fade in the original fill
+            setTimeout(()=>{
+              // reveal the original element's fills
+              try{
+                if(origEl.classList) origEl.querySelectorAll && origEl.querySelectorAll('*') && origEl.querySelectorAll('*').forEach(e=>{ if(e.classList && e.classList.contains('hidden-fill')) e.style.opacity = '1'; });
+                if(origEl.classList && origEl.classList.contains('hidden-fill')) origEl.style.opacity = '1';
+              }catch(e){}
+              // optionally fade the outline out a bit
+              outEl.style.transition = 'opacity 280ms linear';
+              outEl.style.opacity = '0.6';
+            }, thisDelay + strokeDuration + 80);
+          })(el, clone, delay);
+
+          delay += gap;
+        }
+
+      }catch(err){
+        console.error('staggered init error', err);
+        const text = document.createElementNS(svgNS,'text');
+        text.setAttribute('x',20); text.setAttribute('y',40); text.setAttribute('fill','#f00');
+        text.textContent = 'Error loading staggered SVG: '+err.message;
+        container.appendChild(text);
+      }
+    })();
+  ]]></script>
+</svg>

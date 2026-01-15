@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10443.76 7473.3" width="100%" height="100%">
+  <style>
+    .rot {
+      transform-box: fill-box;
+      transform-origin: 50% 50%;
+      animation: spin 12s linear infinite, pulse 3.5s ease-in-out infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.02); } }
+  </style>
+  <g class="rot">
+    <image href="/images/pie-chart.svg" width="10443.76" height="7473.3" preserveAspectRatio="xMidYMid meet" />
+  </g>
+</svg>

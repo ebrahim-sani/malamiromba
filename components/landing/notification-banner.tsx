@@ -147,7 +147,7 @@ export default function NotificationBanner({
                   <p className="text-[10px] md:text-sm font-medium text-clip">
                      {getMessage()}
                   </p>
-                  {/* {(notification.date || notification.time) && (
+                  {(notification.date || notification.time) && (
                      <div className="hidden md:flex items-center text-xs text-white/80 mt-1 sm:mt-0">
                         {notification.date && (
                            <span className="flex items-center">
@@ -162,7 +162,7 @@ export default function NotificationBanner({
                            </span>
                         )}
                      </div>
-                  )} */}
+                  )}
                </div>
             </div>
 

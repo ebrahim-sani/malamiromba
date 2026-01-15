@@ -183,7 +183,7 @@ export default function TechConsulting({ data }: TechConsultingProps) {
          </motion.div>
 
          <Link
-            href="https://forms.gle/QTrKvZrRf51upDWD8"
+            href="https://wa.link/oloq4b"
             target="_blank"
             rel="noopener noreferrer"
          >
